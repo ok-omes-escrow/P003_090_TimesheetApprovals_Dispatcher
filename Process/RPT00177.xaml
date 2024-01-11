@@ -1,0 +1,222 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="RPT00177" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:l="clr-namespace:LIB_O365_Sharepoint_00_00;assembly=LIB_O365_Sharepoint_00.00" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_DicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1234,2275</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>RPT00169_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>Microsoft.Graph</x:String>
+      <x:String>LIB_O365_Sharepoint_00_00</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Enums</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Mail</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Contracts</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>Microsoft.Graph</AssemblyReference>
+      <AssemblyReference>Microsoft.Graph.Core</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
+      <AssemblyReference>LIB_O365_Sharepoint_00.00</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Description: This xaml integrates all the flows related to No Time Reported Report( RPT00177)&#xA;PreCondition: Access to Workday API&#xA;PostCondition: Report details are extracted as excel" DisplayName="RPT00177" sap:VirtualizedContainerService.HintSize="485,2210" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="s:DateTime" Name="dateStartDate" />
+      <Variable x:TypeArguments="s:DateTime" Name="dateEndDate" />
+      <Variable x:TypeArguments="x:String" Name="strResponse" />
+      <Variable x:TypeArguments="x:String" Name="strNoTimeRepPath" />
+      <Variable x:TypeArguments="x:String" Name="strNoTimeRepFile" />
+      <Variable x:TypeArguments="x:Boolean" Name="boolFileUploaded" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log No Time Reported Report (RPT00177) Start " sap:VirtualizedContainerService.HintSize="423,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;This will start the No Time Reported reported flow(RPT00177)&quot;]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Description: Get last weeks start date and end date.&#xA;Start date - 9th day date before the current week’s Monday&#xA;End date - 3rd day date before the current week’s Monday " DisplayName="Get Start And End Date For No TIme Reported Report" sap:VirtualizedContainerService.HintSize="423,200" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Process\Get Start And End Date.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="s:DateTime" x:Key="out_DatePreviousWeekSunday">[dateStartDate]</OutArgument>
+        <OutArgument x:TypeArguments="s:DateTime" x:Key="out_DatePreviousWeekSaturday">[dateEndDate]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will work on to get the  employee details from workday API called No time Reported." DisplayName="Get Data Of No Time Reported Report(RPT00177)" sap:VirtualizedContainerService.HintSize="423,155" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Process\RPT00177_ExtractDetailsAPI.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrCredential">[cstr(in_DicConfig("P003_090_TimesheetApprovals_RPT00177APICredential"))]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrURL">[cstr(in_DicConfig("RPT00177_API_Url"))]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrStartDate">[dateStartDate.ToString("yyyy-MM-dd")]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_StrResponse">[strResponse]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrOrchestratorFolder">[cstr(in_DicConfig(cstr(in_DicConfig("P003_090_TimesheetApprovals_RPT00177APICredential"))+"_Folder"))]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrEndDate">[dateEndDate.ToString("yyyy-MM-dd")]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:MultipleAssign DisplayName="Multiple Assign No TIme Reported File And Path" sap:VirtualizedContainerService.HintSize="423,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strNoTimeRepFile]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[cstr(in_DicConfig("177ReportName")).Replace("{datetime}",now.ToString("MM-dd-yyyy hh mm ss"))]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strNoTimeRepPath]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[cstr(in_DicConfig("177ReportPath"))+"\"+strNoTimeRepFile]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will convert outcome of No Time Reported of format Json to excel" DisplayName="Convert Json To Excel.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="423,155" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Process\Convert Json To Excel.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrJson">[strResponse]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrKey">[cstr(in_DicConfig("177ResponseKey"))]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrExcelSheetName">[cstr(in_DicConfig("177ReportSheetName"))]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrExcelPath">[strNoTimeRepPath]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <l:Upload_File sap2010:Annotation.AnnotationText="This will upload the Report file to sharepoint folder." DisplayName="Upload No Time Reported Report to Sharepoint" sap:VirtualizedContainerService.HintSize="423,478" sap2010:WorkflowViewState.IdRef="Upload_File_1" in_strApplicationIDAssetName="[cstr(in_DicConfig(&quot;O365ApplicationIDAssetName&quot;))]" in_strApplicationSecretAssetName="[cstr(in_DicConfig(&quot;O365ApplicationSecretAssetName&quot;))]" in_strParentDriveItemOptional="[Nothing]" in_strSharepointParentFolderPath="[cstr(in_DicConfig(&quot;Root Folder&quot;))+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)+&quot;/&quot;+Now.ToString(&quot;MMMM&quot;)+&quot;/&quot;+now.ToString(&quot;MM-dd-yyyy&quot;)]" in_strSharepointURL="[cstr(in_DicConfig(&quot;Sharepoint URL&quot;))]" in_strSharepointUploadFilePath="[strNoTimeRepPath]" in_strTenantIDAssetName="[cstr(in_DicConfig(&quot;O365TenantIDAssetName&quot;))]" out_boolFileUploaded="[boolFileUploaded]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </l:Upload_File>
+    <ui:DeleteFileX DisplayName="Delete 177 File" sap:VirtualizedContainerService.HintSize="423,80" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[strNoTimeRepPath]" />
+    <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="This will add No Time Reported report details to Queue." DisplayName="Add Queue Item  No Time Reported Report" FolderPath="[cstr(in_DicConfig(&quot;OrchestratorQueueFolder&quot;))]" sap:VirtualizedContainerService.HintSize="423,225" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="[cstr(in_DicConfig(&quot;OrchestratorQueueName&quot;))]" Reference="[&quot;NoTimeReported &quot;+now.ToString(&quot;MM-dd-yyyy HH:mm&quot;)]">
+      <ui:AddQueueItem.ItemInformation>
+        <InArgument x:TypeArguments="x:String" x:Key="FilePath">[cstr(in_DicConfig("Root Folder"))+"/"+Now.ToString("yyyy")+"/"+Now.ToString("MMMM")+"/"+now.ToString("MM-dd-yyyy")+"/"+strNoTimeRepFile]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="SheetName">[cstr(in_DicConfig("177ReportSheetName"))]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="ReportType">NoTimeReported</InArgument>
+      </ui:AddQueueItem.ItemInformation>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:AddQueueItem>
+    <ui:LogMessage DisplayName="Log No Time Reported Report (RPT00177) End" sap:VirtualizedContainerService.HintSize="423,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Process has completed for No Time Reported reported flow(RPT00177)&quot;]" />
+  </Sequence>
+</Activity>

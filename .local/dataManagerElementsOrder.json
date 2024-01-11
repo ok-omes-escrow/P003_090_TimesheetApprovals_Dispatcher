@@ -1,0 +1,212 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/InitAllApplications.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "boolFolderExists&Sequence_9",
+        "intResCount&Sequence_9"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "TransactionItem&StateMachine_1",
+        "SystemException&StateMachine_1",
+        "BusinessException&StateMachine_1",
+        "TransactionNumber&StateMachine_1",
+        "Config&StateMachine_1",
+        "RetryNumber&StateMachine_1",
+        "TransactionField2&StateMachine_1",
+        "TransactionField1&StateMachine_1",
+        "TransactionID&StateMachine_1",
+        "dt_TransactionData&StateMachine_1",
+        "ConsecutiveSystemExceptions&StateMachine_1",
+        "ShouldStop&Sequence_25"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_OrchestratorQueueName",
+        "in_OrchestratorQueueFolder"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/Process.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strEx&Sequence_1",
+        "strReportsFailed&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "io_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/SendMail.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_StrToAddress",
+        "in_StrCcAddress",
+        "in_StrSubject",
+        "in_StrBody",
+        "in_StrAccount",
+        "in_boolTestRun",
+        "in_DicConfig",
+        "in_ListAttachmentPath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/SetTransactionStatus.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "QueueRetry&Sequence_17"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_BusinessException",
+        "in_TransactionField1",
+        "in_TransactionField2",
+        "in_TransactionID",
+        "in_SystemException",
+        "in_Config",
+        "in_TransactionItem",
+        "io_RetryNumber",
+        "io_TransactionNumber",
+        "io_ConsecutiveSystemExceptions"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/GetTransactionData.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_TransactionNumber",
+        "in_Config",
+        "out_TransactionItem",
+        "out_TransactionField1",
+        "out_TransactionField2",
+        "out_TransactionID",
+        "io_dt_TransactionData"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/CloseAllApplications.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/RPT00177.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dateStartDate&Sequence_1",
+        "dateEndDate&Sequence_1",
+        "strResponse&Sequence_1",
+        "strNoTimeRepPath&Sequence_1",
+        "strNoTimeRepFile&Sequence_1",
+        "boolFileUploaded&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_DicConfig"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/RPT00169.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dateStartDate&Sequence_1",
+        "dateEndDate&Sequence_1",
+        "strResponse&Sequence_1",
+        "strNotSubmittedPath&Sequence_1",
+        "strNotSubmittedFile&Sequence_1",
+        "boolFileUploaded&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_DicConfig"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/InitAllSettings.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_SettingsAndConstants&Sequence_5",
+        "dt_Assets&Sequence_6",
+        "AssetValue&Sequence_11"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigFile",
+        "in_ConfigSheets",
+        "out_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/RPT00177_ExtractDetailsAPI.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "intStatus&Sequence_1",
+        "strUserName&Sequence_1",
+        "secstrPassword&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_StrCredential",
+        "in_StrURL",
+        "in_StrStartDate",
+        "out_StrResponse",
+        "in_StrOrchestratorFolder",
+        "in_StrEndDate"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/RPT00169_ExtractDetailsAPI.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "intStatus&Sequence_1",
+        "strUserName&Sequence_1",
+        "secstrPassword&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_StrOrchestratorFolder",
+        "in_strStartDate",
+        "in_strEndDate",
+        "out_strResponse",
+        "in_strURL",
+        "in_strCredential"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}
