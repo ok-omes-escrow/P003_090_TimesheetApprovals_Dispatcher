@@ -1,18 +1,17 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SendMail" this:SendMail.in_ListAttachmentPath="[new List(of string)]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:l="clr-namespace:LIB_O365MailActivities_00_00;assembly=LIB_O365MailActivities_00.00" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SendMail" this:SendMail.in_ListAttachmentPath="[new List(of string)]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:l="clr-namespace:LIB_GraphAPI;assembly=LIB_GraphAPI" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_StrToAddress" Type="InArgument(s:String[])" />
     <x:Property Name="in_StrCcAddress" Type="InArgument(s:String[])" />
     <x:Property Name="in_StrSubject" Type="InArgument(x:String)" />
     <x:Property Name="in_StrBody" Type="InArgument(x:String)" />
     <x:Property Name="in_StrAccount" Type="InArgument(x:String)" />
-    <x:Property Name="in_boolTestRun" Type="InArgument(x:Boolean)" />
-    <x:Property Name="in_DicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_ListAttachmentPath" Type="InArgument(scg:List(x:String))" />
+    <x:Property Name="in_dicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,1658</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1100,827</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SendMail_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -59,6 +58,7 @@
       <x:String>UiPath.MicrosoftOffice365.Activities.Mail</x:String>
       <x:String>System.ComponentModel</x:String>
       <x:String>Microsoft.Office.Interop.Word</x:String>
+      <x:String>LIB_GraphAPI</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -129,60 +129,26 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
       <AssemblyReference>Microsoft.Office.Interop.Word</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>LIB_GraphAPI</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: This will send out an email with respect the activity&#xA;PreCondition: Access to mailbox with service account&#xA;PostCondition: Mail sent" DisplayName="Send Mail TimeSheet Entry Send Reminders" sap:VirtualizedContainerService.HintSize="572,1593" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: This will send out an email with respect the activity&#xA;PreCondition: Access to mailbox with service account&#xA;PostCondition: Mail sent" DisplayName="Send Mail TimeSheet Entry Send Reminders" sap:VirtualizedContainerService.HintSize="450,613" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Send Mail Start" sap:VirtualizedContainerService.HintSize="510,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Send mail has started&quot;]" />
-    <If Condition="[in_boolTestRun]" DisplayName="If Test Run" sap:VirtualizedContainerService.HintSize="510,474" sap2010:WorkflowViewState.IdRef="If_1">
-      <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="476,292" sap2010:WorkflowViewState.IdRef="Sequence_2">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <Assign DisplayName="Assign To Email" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
-            <Assign.To>
-              <OutArgument x:TypeArguments="s:String[]">[in_StrToAddress]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="s:String[]">[new string() {in_StrAccount}]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <Assign DisplayName="Assign CC Email Address" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
-            <Assign.To>
-              <OutArgument x:TypeArguments="s:String[]">[in_StrCcAddress]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="s:String[]">[new string() {in_StrAccount}]</InArgument>
-            </Assign.Value>
-          </Assign>
-        </Sequence>
-      </If.Then>
-      <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_3">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-        </Sequence>
-      </If.Else>
-    </If>
-    <l:Send_Email ApplicationID_Asset_Name="[cstr(in_DicConfig(&quot;O365ApplicationIDAssetName&quot;))]" Application_Secret_Asset_Name="[cstr(in_DicConfig(&quot;O365ApplicationSecretAssetName&quot;))]" Attachment_List="[in_ListAttachmentPath]" CC_Email_Account="[in_StrCcAddress]" DisplayName="Send Email Timesheet Entry Dispatcher" From_Email_Account="[in_StrAccount]" sap:VirtualizedContainerService.HintSize="510,549" sap2010:WorkflowViewState.IdRef="Send_Email_8" Mail_Body="[in_StrBody]" Mail_Subject="[in_StrSubject]" Orchestrator_Folder_Path="[cstr(in_DicConfig(&quot;O365AssetsInOrchestratorFolder&quot;))]" TenantID_Asset_Name="[CStr(in_DicConfig(&quot;O365TenantIDAssetName&quot;))]" To_Email_Account="[in_StrToAddress]">
+    <ui:LogMessage DisplayName="Log Send Mail Start" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Send mail has started&quot;]" />
+    <l:Send_Email sap2010:Annotation.AnnotationText="This will sends out an email" DisplayName="Send Email Timesheet Entry Dispatcher" sap:VirtualizedContainerService.HintSize="388,83" sap2010:WorkflowViewState.IdRef="Send_Email_9" in_listOfAttachment="[in_ListAttachmentPath]" in_strApplicationIDAssetName="[cstr(in_dicConfig(&quot;O365ApplicationIDAssetName&quot;))]" in_strApplicationSecretAssetName="[cstr(in_dicConfig(&quot;O365ApplicationSecretAssetName&quot;))]" in_strFromEmailAccount="[in_StrAccount]" in_strMailBody="[in_StrBody]" in_strMailRecipientCC="[in_StrCcAddress]" in_strMailRecipientTo="[in_StrToAddress]" in_strMailSubject="[in_StrSubject]" in_strOrchestratorFolderPath="[cstr(in_dicConfig(&quot;O365AssetsInOrchestratorFolder&quot;))]" in_strTenantIDAssetName="[CStr(in_dicConfig(&quot;O365TenantIDAssetName&quot;))]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </l:Send_Email>
-    <ui:LogMessage DisplayName="Log Send Mail End" sap:VirtualizedContainerService.HintSize="510,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Send mail has completed&quot;]" />
+    <ui:LogMessage DisplayName="Log Send Mail End" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Send mail has completed&quot;]" />
   </Sequence>
 </Activity>

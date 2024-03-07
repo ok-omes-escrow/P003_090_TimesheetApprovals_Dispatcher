@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AtpTrNn5sK5Mur5nipSPRpy1Kc96oUD82f0C2AIw9ho9HLogydz5NeIlBbfysifPUdTlz6Vs0oT5/Phhv7D8uA==",
+  "dgSpecHash": "Yk7ULewkywPf4JnETCvUGHcfuVlvxuvE8bfxhV7BHSi8bSZuPUfHiWvu6ixQU07w3UXWveib4sRUV5zxYZedCA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\55646C\\Downloads\\P003_090_TimesheetApprovals_Dispatcher\\.local\\",
+  "projectFilePath": "C:\\Users\\55646C\\Documents\\GitHub\\P003_090_TimesheetApprovals_Dispatcher\\.local\\",
   "expectedPackageFiles": [
     "C:\\Users\\55646C\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\55646C\\.nuget\\packages\\avalonedit\\6.1.3.50\\avalonedit.6.1.3.50.nupkg.sha512",
@@ -11,9 +11,8 @@
     "C:\\Users\\55646C\\.nuget\\packages\\csvhelper\\16.0.0\\csvhelper.16.0.0.nupkg.sha512",
     "C:\\Users\\55646C\\.nuget\\packages\\documentformat.openxml\\2.12.1\\documentformat.openxml.2.12.1.nupkg.sha512",
     "C:\\Users\\55646C\\.nuget\\packages\\excelnumberformat\\1.0.10\\excelnumberformat.1.0.10.nupkg.sha512",
-    "C:\\Users\\55646C\\.nuget\\packages\\lib_o365mailactivities_00.00\\1.0.3\\lib_o365mailactivities_00.00.1.0.3.nupkg.sha512",
-    "C:\\Users\\55646C\\.nuget\\packages\\lib_o365mailactivities_00.00.library.runtime\\1.0.3\\lib_o365mailactivities_00.00.library.runtime.1.0.3.nupkg.sha512",
-    "C:\\Users\\55646C\\.nuget\\packages\\lib_o365_sharepoint_00.00\\1.0.4\\lib_o365_sharepoint_00.00.1.0.4.nupkg.sha512",
+    "C:\\Users\\55646C\\.nuget\\packages\\lib_graphapi_1.0\\1.0.1-alpha.2\\lib_graphapi_1.0.1.0.1-alpha.2.nupkg.sha512",
+    "C:\\Users\\55646C\\.nuget\\packages\\lib_graphapi_1.0.library.runtime\\1.0.1-alpha.2\\lib_graphapi_1.0.library.runtime.1.0.1-alpha.2.nupkg.sha512",
     "C:\\Users\\55646C\\.nuget\\packages\\markdig.signed\\0.21.1\\markdig.signed.0.21.1.nupkg.sha512",
     "C:\\Users\\55646C\\.nuget\\packages\\microsoft.applicationinsights\\2.15.0\\microsoft.applicationinsights.2.15.0.nupkg.sha512",
     "C:\\Users\\55646C\\.nuget\\packages\\microsoft.aspnet.signalr.client\\2.4.0\\microsoft.aspnet.signalr.client.2.4.0.nupkg.sha512",

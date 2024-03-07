@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,2727</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1100,3222</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -38,6 +38,7 @@
       <x:String>GlobalConstantsNamespace</x:String>
       <x:String>System.Reflection</x:String>
       <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -93,20 +94,15 @@
       <AssemblyReference>System.IO.Packaging</AssemblyReference>
       <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="592,2662" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="598,3157" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="strEx">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:String" Value="" />
-        </Variable.Default>
-      </Variable>
-      <Variable x:TypeArguments="x:String" Name="strReportsFailed">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:String" Value="" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:String" Name="strException" />
+      <Variable x:TypeArguments="x:String" Name="strReportsFailed" />
+      <Variable x:TypeArguments="x:String" Name="strSubject" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -114,13 +110,13 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="530,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process TimeSheet entry dispatcher&quot;]" />
-    <ui:MultipleAssign DisplayName="Initialise Local Variables" sap:VirtualizedContainerService.HintSize="530,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="536,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process TimeSheet entry dispatcher&quot;]" />
+    <ui:MultipleAssign sap2010:Annotation.AnnotationText="These two are created and initilized for stroing exception releated ro particular report." DisplayName="Initialise Local Variables " sap:VirtualizedContainerService.HintSize="536,174" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
             <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[strEx]</OutArgument>
+              <OutArgument x:TypeArguments="x:String">[strException]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="x:String">[String.Empty]</InArgument>
@@ -136,8 +132,15 @@
           </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <TryCatch sap2010:Annotation.AnnotationText="This will hit the Workday API related to the Report RPT00177( No Time Reported Report) and converted the Json data to Excel (Which creates a No time reported report and add the file details to Queue)" DisplayName="No Time Reported Report(RPT00177)" sap:VirtualizedContainerService.HintSize="530,684" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch sap2010:Annotation.AnnotationText="This will hit the Workday API related to the Report RPT00177( No Time Reported Report) and converted the Json data to Excel (Which creates a No time reported report and add the file details to Queue)" DisplayName="No Time Reported Report(RPT00177)" sap:VirtualizedContainerService.HintSize="536,241" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -146,30 +149,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <ui:RetryScope DisplayName="Retry Scope No Time Reported Report" sap:VirtualizedContainerService.HintSize="492,399" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="3" RetryInterval="00:00:05">
-          <ui:RetryScope.ActivityBody>
-            <ActivityAction>
-              <Sequence DisplayName="No Time Reported Report Flow" sap:VirtualizedContainerService.HintSize="450,224" sap2010:WorkflowViewState.IdRef="Sequence_2">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke No Time Reported Report Flow" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Process\RPT00177.xaml">
-                  <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_DicConfig">[io_Config]</InArgument>
-                  </ui:InvokeWorkflowFile.Arguments>
-                </ui:InvokeWorkflowFile>
-              </Sequence>
-            </ActivityAction>
-          </ui:RetryScope.ActivityBody>
-          <ui:RetryScope.Condition>
-            <ActivityFunc x:TypeArguments="x:Boolean" />
-          </ui:RetryScope.Condition>
-        </ui:RetryScope>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke No Time Reported Report Flow" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Process\CreateNoTimeReport.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">[io_Config]</InArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="496,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -180,27 +167,36 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="No TIme Reported Report Exception" sap:VirtualizedContainerService.HintSize="496,406" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence DisplayName="No TIme Reported Report Exception" sap:VirtualizedContainerService.HintSize="496,618" sap2010:WorkflowViewState.IdRef="Sequence_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log 177 ex Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;Exception while fetching RPT00177 - &quot;+exception.Message]" />
-              <Assign DisplayName="Assign Exception  To Strex" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <ui:LogMessage DisplayName="Log No Time Reported Exception Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;Exception while fetching No Time Reported(RPT00177) - &quot;+exception.Message+ &quot; at Source: &quot; + exception.Source]" />
+              <Assign DisplayName="Assign Exception Details No Time Reported" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
                 <Assign.To>
-                  <OutArgument x:TypeArguments="x:String">[strEx]</OutArgument>
+                  <OutArgument x:TypeArguments="x:String">[strException]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[strEx+exception.Message]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[strException+exception.Message]</InArgument>
                 </Assign.Value>
               </Assign>
-              <Assign DisplayName="Assign Failed No TIme Report" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+              <Assign DisplayName="Assign Failed Report Type No Time Report" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[strReportsFailed]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">RPT00177</InArgument>
+                  <InArgument x:TypeArguments="x:String">No Time Reported Report (RPT00177)</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="Assign Exception Subject No Time Report" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_6">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[strSubject]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[cstr(io_Config("Subject_RPT00177WorkdayAPI Unavailable"))]</InArgument>
                 </Assign.Value>
               </Assign>
             </Sequence>
@@ -208,7 +204,7 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <TryCatch sap2010:Annotation.AnnotationText="This will hit the Workday API related to the Report RPT00169( Not Submitted and Not Approved reports) and convertes the Json data to Excel (Which creates Not submitted and Not approved reports and add the files details to Queue)&#xA;" DisplayName="Not Submitted And Not Approved Report(RPT00169)" sap:VirtualizedContainerService.HintSize="530,603" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <TryCatch sap2010:Annotation.AnnotationText="This will hit the Workday API related to the Report RPT00169( Not Submitted and Not Approved reports) and convertes the Json data to Excel (Which creates Not submitted and Not approved reports and add the files details to Queue)&#xA;" DisplayName="Not Submitted And Not Approved Report(RPT00169)" sap:VirtualizedContainerService.HintSize="536,922" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -217,26 +213,17 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <ui:RetryScope DisplayName="Retry Scope Not Submitted And Not Approved Reports" sap:VirtualizedContainerService.HintSize="376,288" sap2010:WorkflowViewState.IdRef="RetryScope_3" NumberOfRetries="3" RetryInterval="00:00:05">
-          <ui:RetryScope.ActivityBody>
-            <ActivityAction>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Not Submitted And Not Approved Report Flow" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Process\RPT00169.xaml">
-                <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_DicConfig">[io_Config]</InArgument>
-                </ui:InvokeWorkflowFile.Arguments>
-              </ui:InvokeWorkflowFile>
-            </ActivityAction>
-          </ui:RetryScope.ActivityBody>
-          <ui:RetryScope.Condition>
-            <ActivityFunc x:TypeArguments="x:Boolean" />
-          </ui:RetryScope.Condition>
-        </ui:RetryScope>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Not Submitted And Not Approved Report Flow" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Process\CreateNotSubmittedAndNotApprovedReport.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">[io_Config]</InArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="502,687" sap2010:WorkflowViewState.IdRef="Catch`1_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -244,22 +231,22 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Not Submitted Not Approved Exception" sap:VirtualizedContainerService.HintSize="496,402" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <Sequence DisplayName="Not Submitted Not Approved Exception" sap:VirtualizedContainerService.HintSize="496,618" sap2010:WorkflowViewState.IdRef="Sequence_5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Not Submitted(RPT00177) Exception" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;Exception while fetching RPT00169 - &quot;+exception.Message]" />
-              <Assign DisplayName="Assign Ex To Strex  Not Submitted" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+              <ui:LogMessage DisplayName="Log Not Submitted(RPT00169) Exception" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;Exception while fetching Not Submitted And Not Approved(RPT00169) - &quot;+exception.Message+ &quot; at Source: &quot; + exception.Source]" />
+              <Assign DisplayName="Assign Exception Details For Not Submitted" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
                 <Assign.To>
-                  <OutArgument x:TypeArguments="x:String">[strEx]</OutArgument>
+                  <OutArgument x:TypeArguments="x:String">[strException]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[if(String.IsNullOrWhiteSpace(strEx),exception.Message,strEx+", "+exception.Message)]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[if(String.IsNullOrWhiteSpace(strException),exception.Message,strException+", "+exception.Message)]</InArgument>
                 </Assign.Value>
               </Assign>
-              <Assign DisplayName="Assign Failed  Report Not Submitted" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign DisplayName="Assign Failed Report Type Not Submitted" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_5">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[strReportsFailed]</OutArgument>
                 </Assign.To>
@@ -267,12 +254,20 @@
                   <InArgument x:TypeArguments="x:String">[if(String.IsNullOrWhiteSpace(strReportsFailed),"RPT00169",strReportsFailed+", RPT00177")]</InArgument>
                 </Assign.Value>
               </Assign>
+              <Assign DisplayName="Assign Subject" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[strSubject]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[if(strSubject&lt;&gt;"",cstr(io_Config("Subject_WorkdayAPI Unavailable")),cstr(io_Config("Subject_RPT00169WorkdayAPI Unavailable")))]</InArgument>
+                </Assign.Value>
+              </Assign>
             </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:MultipleAssign DisplayName="Assign Exception details" sap:VirtualizedContainerService.HintSize="530,147" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+    <ui:MultipleAssign DisplayName="Assign Exception details" sap:VirtualizedContainerService.HintSize="536,163" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -280,7 +275,7 @@
               <OutArgument x:TypeArguments="x:Object">[io_Config("strEx")]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:Object">[strEx]</InArgument>
+              <InArgument x:TypeArguments="x:Object">[strException]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
@@ -291,13 +286,23 @@
               <InArgument x:TypeArguments="x:Object">[strReportsFailed]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Object">[io_Config("strSubject")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Object">[strSubject]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <If sap2010:Annotation.AnnotationText="This will check if any exception in Workday API and throws if any." Condition="[not(String.IsNullOrWhiteSpace(strEx))]" DisplayName="Check Exception" sap:VirtualizedContainerService.HintSize="530,391" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap2010:Annotation.AnnotationText="This will check if any exception in Workday API and throws if any." Condition="[not(String.IsNullOrWhiteSpace(strException))]" DisplayName="Check Exception For Reports" sap:VirtualizedContainerService.HintSize="536,620" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
@@ -307,13 +312,28 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Throw DisplayName="Throw se" Exception="[new SystemException(strEx)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+          <Throw DisplayName="Throw System Exceptions Reports" Exception="[new SystemException(strException)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_7" />
+        <Sequence sap:VirtualizedContainerService.HintSize="376,229" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message Reports Processed End" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot; All reports processed successfully.&quot;]" />
+        </Sequence>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Log Message Process End" sap:VirtualizedContainerService.HintSize="530,141" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Ended Process TimeSheet entry dispatcher&quot;]" />
+    <ui:DeleteFolderX sap2010:Annotation.AnnotationText="This will deletes the Bot working folder in the local" DisplayName="Delete Working Folder" sap:VirtualizedContainerService.HintSize="536,111" sap2010:WorkflowViewState.IdRef="DeleteFolderX_2" Path="[io_Config(&quot;LocalFolderPath&quot;).ToString]" Recursive="True">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:DeleteFolderX>
+    <ui:LogMessage DisplayName="Log Message Delete Folder" sap:VirtualizedContainerService.HintSize="536,141" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Local folder deleted &quot; +io_Config(&quot;LocalFolderPath&quot;).ToString]" />
+    <ui:LogMessage DisplayName="Log Message Process End" sap:VirtualizedContainerService.HintSize="536,141" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Ended Process TimeSheet entry dispatcher&quot;]" />
   </Sequence>
 </Activity>

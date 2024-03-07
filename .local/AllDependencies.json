@@ -123,15 +123,15 @@
           }
         }
       },
-      "LIB_O365MailActivities_00.00/1.0.3": {
+      "LIB_GraphAPI_1.0/1.0.1-alpha.2": {
         "type": "package",
         "dependencies": {
-          "LIB_O365MailActivities_00.00.Library.Runtime": "1.0.3",
+          "LIB_GraphAPI_1.0.Library.Runtime": "1.0.1-alpha.2",
           "UiPath.MicrosoftOffice365.Activities": "2.4.3",
           "UiPath.System.Activities": "23.4.5"
         }
       },
-      "LIB_O365MailActivities_00.00.Library.Runtime/1.0.3": {
+      "LIB_GraphAPI_1.0.Library.Runtime/1.0.1-alpha.2": {
         "type": "package",
         "dependencies": {
           "UiPath.MicrosoftOffice365.Activities": "2.4.3",
@@ -141,45 +141,18 @@
           "lib/net6.0-windows7.0/_._": {}
         },
         "runtime": {
-          "lib/net6.0-windows7.0/LIB_O365MailActivities_00.00.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365MailActivities_00.00_Expressions_13055966.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365MailActivities_00.00_Expressions_19042642.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365MailActivities_00.00_Expressions_2007359.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365MailActivities_00.00_Expressions_52064999.dll": {}
-        },
-        "contentFiles": {
-          "contentFiles/any/any/_._": {
-            "buildAction": "None",
-            "codeLanguage": "any",
-            "copyToOutput": false
-          }
-        }
-      },
-      "LIB_O365_Sharepoint_00.00/1.0.4": {
-        "type": "package",
-        "dependencies": {
-          "UiPath.MicrosoftOffice365.Activities": "2.4.3",
-          "UiPath.System.Activities": "23.4.5"
-        },
-        "compile": {
-          "lib/net6.0-windows7.0/_._": {}
-        },
-        "runtime": {
-          "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_30556270.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_39157888.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_41825261.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_42077468.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_45485984.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_52257042.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_57694677.dll": {}
-        },
-        "contentFiles": {
-          "contentFiles/any/any/_._": {
-            "buildAction": "None",
-            "codeLanguage": "any",
-            "copyToOutput": false
-          }
+          "lib/net6.0-windows7.0/LIB_GraphAPI.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_11756974.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_17896505.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_24514942.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_3099634.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_32834096.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_34737395.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_41566787.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_42604054.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_64415691.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_7894961.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_8963119.dll": {}
         }
       },
       "Markdig.Signed/0.21.1": {
@@ -5489,15 +5462,15 @@
           }
         }
       },
-      "LIB_O365MailActivities_00.00/1.0.3": {
+      "LIB_GraphAPI_1.0/1.0.1-alpha.2": {
         "type": "package",
         "dependencies": {
-          "LIB_O365MailActivities_00.00.Library.Runtime": "1.0.3",
+          "LIB_GraphAPI_1.0.Library.Runtime": "1.0.1-alpha.2",
           "UiPath.MicrosoftOffice365.Activities": "2.4.3",
           "UiPath.System.Activities": "23.4.5"
         }
       },
-      "LIB_O365MailActivities_00.00.Library.Runtime/1.0.3": {
+      "LIB_GraphAPI_1.0.Library.Runtime/1.0.1-alpha.2": {
         "type": "package",
         "dependencies": {
           "UiPath.MicrosoftOffice365.Activities": "2.4.3",
@@ -5507,45 +5480,18 @@
           "lib/net6.0-windows7.0/_._": {}
         },
         "runtime": {
-          "lib/net6.0-windows7.0/LIB_O365MailActivities_00.00.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365MailActivities_00.00_Expressions_13055966.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365MailActivities_00.00_Expressions_19042642.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365MailActivities_00.00_Expressions_2007359.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365MailActivities_00.00_Expressions_52064999.dll": {}
-        },
-        "contentFiles": {
-          "contentFiles/any/any/_._": {
-            "buildAction": "None",
-            "codeLanguage": "any",
-            "copyToOutput": false
-          }
-        }
-      },
-      "LIB_O365_Sharepoint_00.00/1.0.4": {
-        "type": "package",
-        "dependencies": {
-          "UiPath.MicrosoftOffice365.Activities": "2.4.3",
-          "UiPath.System.Activities": "23.4.5"
-        },
-        "compile": {
-          "lib/net6.0-windows7.0/_._": {}
-        },
-        "runtime": {
-          "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_30556270.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_39157888.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_41825261.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_42077468.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_45485984.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_52257042.dll": {},
-          "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_57694677.dll": {}
-        },
-        "contentFiles": {
-          "contentFiles/any/any/_._": {
-            "buildAction": "None",
-            "codeLanguage": "any",
-            "copyToOutput": false
-          }
+          "lib/net6.0-windows7.0/LIB_GraphAPI.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_11756974.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_17896505.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_24514942.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_3099634.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_32834096.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_34737395.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_41566787.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_42604054.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_64415691.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_7894961.dll": {},
+          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_8963119.dll": {}
         }
       },
       "Markdig.Signed/0.21.1": {
@@ -10732,110 +10678,57 @@
         "lib/netstandard2.0/ExcelNumberFormat.xml"
       ]
     },
-    "LIB_O365MailActivities_00.00/1.0.3": {
-      "sha512": "6U9rMqwQC/Q4zO5LTQ9S+pgJUqHXDb/mHzzP3SHACPUfryuTLkYns5ioHc5S6X+oLP/cQWVzyFnibXcvXxY2dw==",
+    "LIB_GraphAPI_1.0/1.0.1-alpha.2": {
+      "sha512": "LB0+rIP7osk50NBmG/7x1rNyFn42Lh8nm6NGFOZzGvlU3vjKmUfYCNlvScEze2Pb8Rjfl8I37C0j2fxHb5OSXA==",
       "type": "package",
-      "path": "lib_o365mailactivities_00.00/1.0.3",
+      "path": "lib_graphapi_1.0/1.0.1-alpha.2",
       "files": [
         ".nupkg.metadata",
         "content/.project/PackageBindingsMetadata.json",
         "content/.project/design.json",
-        "content/.settings/Design/settings-5190454b.json",
-        "content/.settings/Design/settings-a1b2dac1.json",
-        "content/.settings/Design/settings-afad0842.json",
-        "content/.settings/Release/settings-1a5b880a.json",
-        "content/.settings/Release/settings-5190454b.json",
-        "content/.settings/Release/settings-590bb27b.json",
-        "content/.settings/Release/settings-82ca306a.json",
         "content/.settings/Release/settings-9e9290da.json",
-        "content/.settings/Release/settings-a1b2dac1.json",
-        "content/.settings/Release/settings-afad0842.json",
+        "content/Create Folder.xaml",
+        "content/Download File.xaml",
+        "content/Files or Folders Exist.xaml",
+        "content/Get Files or Folders.xaml",
+        "content/Get List Item Field Value.xaml",
         "content/GetO365Assets.xaml",
-        "content/GetO365Assets.xaml.json",
         "content/Read Email.xaml",
-        "content/Read Email.xaml.json",
         "content/Runtime.Mapping.json",
         "content/Send Email.xaml",
-        "content/Send Email.xaml.json",
         "content/Test.xaml",
-        "content/bindings.json",
-        "content/bindings_v2.json",
-        "content/project.json",
-        "lib_o365mailactivities_00.00.1.0.3.nupkg.sha512",
-        "lib_o365mailactivities_00.00.nuspec"
-      ]
-    },
-    "LIB_O365MailActivities_00.00.Library.Runtime/1.0.3": {
-      "sha512": "KqZmDwZTF3BMu61a+P7qlxGSTs9XFarH0VGX0xpNAbKl+rlLQDpNiynf2neDHreMVq8GLjZ8z9LLPfPp+lWWVA==",
-      "type": "package",
-      "path": "lib_o365mailactivities_00.00.library.runtime/1.0.3",
-      "files": [
-        ".nupkg.metadata",
-        "content/.settings/Release/settings-1a5b880a.json",
-        "content/.settings/Release/settings-5190454b.json",
-        "content/.settings/Release/settings-590bb27b.json",
-        "content/.settings/Release/settings-82ca306a.json",
-        "content/.settings/Release/settings-9e9290da.json",
-        "content/.settings/Release/settings-a1b2dac1.json",
-        "content/.settings/Release/settings-afad0842.json",
-        "content/bindings.json",
-        "content/bindings_v2.json",
-        "contentFiles/any/any/.objects/.metadata",
-        "contentFiles/any/any/.objects/.type",
-        "lib/net6.0-windows7.0/LIB_O365MailActivities_00.00.dll",
-        "lib/net6.0-windows7.0/LIB_O365MailActivities_00.00_Expressions_13055966.dll",
-        "lib/net6.0-windows7.0/LIB_O365MailActivities_00.00_Expressions_19042642.dll",
-        "lib/net6.0-windows7.0/LIB_O365MailActivities_00.00_Expressions_2007359.dll",
-        "lib/net6.0-windows7.0/LIB_O365MailActivities_00.00_Expressions_52064999.dll",
-        "lib_o365mailactivities_00.00.library.runtime.1.0.3.nupkg.sha512",
-        "lib_o365mailactivities_00.00.library.runtime.nuspec"
-      ]
-    },
-    "LIB_O365_Sharepoint_00.00/1.0.4": {
-      "sha512": "jon6L+sBB2PABZzzOMCczInFmzNC9FA2i0d8JOJFyXrS46maWBBblQx24uWur6H87bTUjycAv1UjN4Yiy4JH4w==",
-      "type": "package",
-      "path": "lib_o365_sharepoint_00.00/1.0.4",
-      "files": [
-        ".nupkg.metadata",
-        "content/.project/PackageBindingsMetadata.json",
-        "content/.project/design.json",
-        "content/.settings/Design/settings-5190454b.json",
-        "content/.settings/Design/settings-a1b2dac1.json",
-        "content/.settings/Design/settings-afad0842.json",
-        "content/.settings/Release/settings-1a5b880a.json",
-        "content/.settings/Release/settings-5190454b.json",
-        "content/.settings/Release/settings-590bb27b.json",
-        "content/.settings/Release/settings-82ca306a.json",
-        "content/.settings/Release/settings-9e9290da.json",
-        "content/.settings/Release/settings-a1b2dac1.json",
-        "content/.settings/Release/settings-afad0842.json",
-        "content/Create Folder.xaml",
-        "content/Create Folder.xaml.json",
-        "content/Download File.xaml",
-        "content/Download File.xaml.json",
-        "content/Files or Folders Exist.xaml",
-        "content/Files or Folders Exist.xaml.json",
-        "content/Get Files or Folders.xaml",
-        "content/Get Files or Folders.xaml.json",
-        "content/GetO365Assets.xaml",
-        "content/Test.xaml",
+        "content/Update List Item.xaml",
         "content/Upload File.xaml",
-        "content/Upload File.xaml.json",
         "content/bindings.json",
         "content/bindings_v2.json",
         "content/project.json",
-        "contentFiles/any/any/.objects/.metadata",
-        "contentFiles/any/any/.objects/.type",
-        "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00.dll",
-        "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_30556270.dll",
-        "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_39157888.dll",
-        "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_41825261.dll",
-        "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_42077468.dll",
-        "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_45485984.dll",
-        "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_52257042.dll",
-        "lib/net6.0-windows7.0/LIB_O365_Sharepoint_00.00_Expressions_57694677.dll",
-        "lib_o365_sharepoint_00.00.1.0.4.nupkg.sha512",
-        "lib_o365_sharepoint_00.00.nuspec"
+        "lib_graphapi_1.0.1.0.1-alpha.2.nupkg.sha512",
+        "lib_graphapi_1.0.nuspec"
+      ]
+    },
+    "LIB_GraphAPI_1.0.Library.Runtime/1.0.1-alpha.2": {
+      "sha512": "8lJYVo7j1kdPGVp0cgKDJ/AtP/woMt08ha2Jg0895aDsfgw+Co5GRON+tUQkyJgE5848ntyPjnrUG9kENcrGDQ==",
+      "type": "package",
+      "path": "lib_graphapi_1.0.library.runtime/1.0.1-alpha.2",
+      "files": [
+        ".nupkg.metadata",
+        "content/.settings/Release/settings-9e9290da.json",
+        "content/bindings.json",
+        "content/bindings_v2.json",
+        "lib/net6.0-windows7.0/LIB_GraphAPI.dll",
+        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_11756974.dll",
+        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_17896505.dll",
+        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_24514942.dll",
+        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_3099634.dll",
+        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_32834096.dll",
+        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_34737395.dll",
+        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_41566787.dll",
+        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_42604054.dll",
+        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_64415691.dll",
+        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_7894961.dll",
+        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_8963119.dll",
+        "lib_graphapi_1.0.library.runtime.1.0.1-alpha.2.nupkg.sha512",
+        "lib_graphapi_1.0.library.runtime.nuspec"
       ]
     },
     "Markdig.Signed/0.21.1": {
@@ -20916,8 +20809,7 @@
   "projectFileDependencyGroups": {
     "": [],
     "net6.0-windows7.0": [
-      "LIB_O365MailActivities_00.00 >= 1.0.3 <= 1.0.3",
-      "LIB_O365_Sharepoint_00.00 >= 1.0.4 <= 1.0.4",
+      "LIB_GraphAPI_1.0 >= 1.0.1-alpha.2 <= 1.0.1-alpha.2",
       "UiPath.Excel.Activities >= 2.20.2 <= 2.20.2",
       "UiPath.System.Activities >= 23.4.5 <= 23.4.5",
       "UiPath.Testing.Activities >= 23.4.1 <= 23.4.1",
@@ -20932,22 +20824,17 @@
     "restore": {
       "projectUniqueName": "P003_090_TimesheetApprovals_Dispatcher",
       "projectName": "P003_090_TimesheetApprovals_Dispatcher",
-      "projectPath": "C:\\Users\\55646C\\Downloads\\P003_090_TimesheetApprovals_Dispatcher\\.local",
+      "projectPath": "C:\\Users\\55646C\\Documents\\GitHub\\P003_090_TimesheetApprovals_Dispatcher\\.local",
       "packagesPath": "C:\\Users\\55646C\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\55646C\\Downloads\\P003_090_TimesheetApprovals_Dispatcher\\.local"
+      "outputPath": "C:\\Users\\55646C\\Documents\\GitHub\\P003_090_TimesheetApprovals_Dispatcher\\.local"
     },
     "frameworks": {
       "net6.0-windows7.0": {
         "dependencies": {
-          "LIB_O365MailActivities_00.00": {
+          "LIB_GraphAPI_1.0": {
             "include": "Runtime",
             "target": "Package",
-            "version": "[1.0.3, 1.0.3]"
-          },
-          "LIB_O365_Sharepoint_00.00": {
-            "include": "Runtime",
-            "target": "Package",
-            "version": "[1.0.4, 1.0.4]"
+            "version": "[1.0.1-alpha.2, 1.0.1-alpha.2]"
           },
           "UiPath.Excel.Activities": {
             "include": "Runtime",

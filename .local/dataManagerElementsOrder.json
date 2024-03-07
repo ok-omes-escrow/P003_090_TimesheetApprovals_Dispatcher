@@ -16,6 +16,7 @@
         "intResCount&Sequence_9"
       ],
       "ArgumentsSectionElementsOrder": [
+        "out_strSubject",
         "in_Config"
       ],
       "ConstantsSectionElementsOrder": [],
@@ -25,6 +26,7 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "strSubject&StateMachine_1",
         "TransactionItem&StateMachine_1",
         "SystemException&StateMachine_1",
         "BusinessException&StateMachine_1",
@@ -49,7 +51,8 @@
       "Path": "Framework/Process.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "strEx&Sequence_1",
+        "strSubject&Sequence_1",
+        "strException&Sequence_1",
         "strReportsFailed&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
@@ -63,13 +66,12 @@
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
+        "in_dicConfig",
         "in_StrToAddress",
         "in_StrCcAddress",
         "in_StrSubject",
         "in_StrBody",
         "in_StrAccount",
-        "in_boolTestRun",
-        "in_DicConfig",
         "in_ListAttachmentPath"
       ],
       "ConstantsSectionElementsOrder": [],
@@ -121,9 +123,10 @@
       "AddedNamespaces": null
     },
     {
-      "Path": "Process/RPT00177.xaml",
+      "Path": "Process/CreateNoTimeReport.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "dt_details&Sequence_1",
         "dateStartDate&Sequence_1",
         "dateEndDate&Sequence_1",
         "strResponse&Sequence_1",
@@ -132,15 +135,16 @@
         "boolFileUploaded&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
-        "in_DicConfig"
+        "in_dicConfig"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     },
     {
-      "Path": "Process/RPT00169.xaml",
+      "Path": "Process/CreateNotSubmittedAndNotApprovedReport.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "dt_Details&Sequence_1",
         "dateStartDate&Sequence_1",
         "dateEndDate&Sequence_1",
         "strResponse&Sequence_1",
@@ -149,7 +153,7 @@
         "boolFileUploaded&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
-        "in_DicConfig"
+        "in_dicConfig"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
@@ -171,7 +175,7 @@
       "AddedNamespaces": null
     },
     {
-      "Path": "Process/RPT00177_ExtractDetailsAPI.xaml",
+      "Path": "Process/ExtractNoTimeReportDetailsFromAPI.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
         "intStatus&Sequence_1",
@@ -179,6 +183,7 @@
         "secstrPassword&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_dicConfig",
         "in_StrCredential",
         "in_StrURL",
         "in_StrStartDate",
@@ -190,7 +195,7 @@
       "AddedNamespaces": null
     },
     {
-      "Path": "Process/RPT00169_ExtractDetailsAPI.xaml",
+      "Path": "Process/ExtractNotSubmittedDetailsFromAPI.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
         "intStatus&Sequence_1",
@@ -198,12 +203,118 @@
         "secstrPassword&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_DicConfig",
         "in_StrOrchestratorFolder",
         "in_strStartDate",
         "in_strEndDate",
         "out_strResponse",
         "in_strURL",
         "in_strCredential"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/CreateSharepointFolders.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "boolFolderExists&Sequence_1",
+        "intResultcount&Sequence_1",
+        "boolFolderCreated&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_strOrchestratorFolderPath",
+        "in_Config",
+        "in_strTenantID",
+        "in_strApplicationID",
+        "in_strApplicationSecretName",
+        "in_strSharePtURL",
+        "in_strSharepointParentFolder"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/KillAllProcesses.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_dicConfig"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/GetStartAndEndDates.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dateCurrentWeekMon&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_DatePreviousWeekSunday",
+        "out_DatePreviousWeekSaturday"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/ConvertJsonToExcel.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "jobjResponse&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_dt_Details",
+        "in_Config",
+        "in_StrJson",
+        "in_StrKey",
+        "in_StrExcelSheetName",
+        "in_StrExcelPath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/CreateLocalFolder.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "boolLocalFolderExists&Sequence_1",
+        "strLocalProjectFolderPath&Sequence_1",
+        "strLocalRootFolder&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/TakeScreenshot.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Screenshot&Sequence_1",
+        "ScreenshotFileInfo&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Folder",
+        "io_FilePath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/ConvertJsonToExcel169.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "jobjResponse&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_dt_Details",
+        "in_StrJson",
+        "in_StrKey",
+        "in_StrExcelSheetName",
+        "in_StrExcelPath",
+        "in_Config"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
