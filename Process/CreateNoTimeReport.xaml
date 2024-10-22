@@ -1,11 +1,19 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="RPT00177" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:l="clr-namespace:LIB_GraphAPI;assembly=LIB_GraphAPI" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="RPT00177" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:l="clr-namespace:LIB_GraphAPI;assembly=LIB_GraphAPI" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_dicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_strAgencyCode" Type="InArgument(x:String)" />
+    <x:Property Name="in_EmailCC" Type="InArgument(x:String)" />
   </x:Members>
+  <this:RPT00177.in_strAgencyCode>
+    <InArgument x:TypeArguments="x:String" />
+  </this:RPT00177.in_strAgencyCode>
+  <this:RPT00177.in_EmailCC>
+    <InArgument x:TypeArguments="x:String" />
+  </this:RPT00177.in_EmailCC>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1100,2445</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1149.3333333333333,3078</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>RPT00169_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -122,7 +130,7 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: This xaml integrates all the flows related to No Time Reported Report( RPT00177)&#xA;PreCondition: Access to Workday API&#xA;PostCondition: Report details are extracted as excel" DisplayName="RPT00177" sap:VirtualizedContainerService.HintSize="485,2380" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: This xaml integrates all the flows related to No Time Reported Report( RPT00177)&#xA;PreCondition: Access to Workday API&#xA;PostCondition: Report details are extracted as excel" DisplayName="RPT00177" sap:VirtualizedContainerService.HintSize="496,3013.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:DateTime" Name="dateStartDate" />
       <Variable x:TypeArguments="s:DateTime" Name="dateEndDate" />
@@ -131,6 +139,7 @@
       <Variable x:TypeArguments="x:String" Name="strNoTimeRepFile" />
       <Variable x:TypeArguments="x:Boolean" Name="boolFileUploaded" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_details" />
+      <Variable x:TypeArguments="x:String" Name="strNewURL" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -138,8 +147,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log No Time Reported Report (RPT00177) Start " sap:VirtualizedContainerService.HintSize="423,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;This will start the No Time Reported reported flow(RPT00177)&quot;]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Description: Get last weeks start date and end date.&#xA;Start date - 9th day date before the current week’s Monday&#xA;End date - 3rd day date before the current week’s Monday " DisplayName="Get Start And End Date For No TIme Reported Report" sap:VirtualizedContainerService.HintSize="423,200" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Process\GetStartAndEndDates.xaml">
+    <ui:LogMessage DisplayName="Log No Time Reported Report (RPT00177) Start " sap:VirtualizedContainerService.HintSize="434,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;This will start the No Time Reported reported flow(RPT00177)&quot;]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Description: Get last weeks start date and end date.&#xA;Start date - 9th day date before the current week’s Monday&#xA;End date - 3rd day date before the current week’s Monday " DisplayName="Get Start And End Date For No TIme Reported Report" sap:VirtualizedContainerService.HintSize="434,210.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Process\GetStartAndEndDates.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="s:DateTime" x:Key="out_DatePreviousWeekSunday">[dateStartDate]</OutArgument>
         <OutArgument x:TypeArguments="s:DateTime" x:Key="out_DatePreviousWeekSaturday">[dateEndDate]</OutArgument>
@@ -150,13 +159,21 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <ui:RetryScope DisplayName="Retry Scope No Time Reported Report" sap:VirtualizedContainerService.HintSize="423,330" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="[Convert.ToInt32(in_dicConfig(&quot;NoOfRetry&quot;))]" RetryInterval="[TimeSpan.Parse(in_dicConfig(&quot;RetryInterval&quot;).ToString)]">
+    <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[strNewURL]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_dicConfig("P003_090_TimesheetApprovals_RPT00177URL").ToString.Replace("&lt;&lt;StartDate&gt;&gt;",dateStartDate.ToString("yyyy-MM-dd")).Replace("&lt;&lt;EndDate&gt;&gt;", dateEndDate.ToString("yyyy-MM-dd")).Replace("&lt;&lt;AgencyCode&gt;&gt;", in_strAgencyCode )]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:RetryScope DisplayName="Retry Scope No Time Reported Report" sap:VirtualizedContainerService.HintSize="434,339.3333333333333" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="[Convert.ToInt32(in_dicConfig(&quot;NoOfRetry&quot;))]" RetryInterval="[TimeSpan.Parse(in_dicConfig(&quot;RetryInterval&quot;).ToString)]">
       <ui:RetryScope.ActivityBody>
         <ActivityAction>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will work on to get the  employee details from workday API called No time Reported." DisplayName="Get Data Of No Time Reported Report(RPT00177)" sap:VirtualizedContainerService.HintSize="334,155" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Process\ExtractNoTimeReportDetailsFromAPI.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will work on to get the  employee details from workday API called No time Reported." DisplayName="Get Data Of No Time Reported Report(RPT00177)" sap:VirtualizedContainerService.HintSize="334,160.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Process\ExtractNoTimeReportDetailsFromAPI.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="in_StrCredential">[cstr(in_dicConfig("P003_090_TimesheetApprovals_RPT00177APICredential"))]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrURL">[cstr(in_dicConfig("P003_090_TimesheetApprovals_RPT00177URL"))]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrURL">[strnewURL]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_StrStartDate">[dateStartDate.ToString("yyyy-MM-dd")]</InArgument>
               <OutArgument x:TypeArguments="x:String" x:Key="out_StrResponse">[strResponse]</OutArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_StrOrchestratorFolder">[cstr(in_dicConfig(cstr(in_dicConfig("P003_090_TimesheetApprovals_RPT00177APICredential"))+"_Folder"))]</InArgument>
@@ -181,7 +198,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:RetryScope>
-    <ui:MultipleAssign DisplayName="Multiple Assign No TIme Reported File And Path" sap:VirtualizedContainerService.HintSize="423,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Multiple Assign No TIme Reported File And Path" sap:VirtualizedContainerService.HintSize="434,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -203,26 +220,14 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will convert outcome of No Time Reported of format Json to excel" DisplayName="Convert Json To Excel.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="423,155" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Process\ConvertJsonToExcel.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will convert outcome of No Time Reported of format Json to excel" DisplayName="Convert Json To Excel.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,160.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Process\ConvertJsonToExcel.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_StrJson">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strResponse" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_StrKey">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_177ResponseKey&quot;))" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_StrExcelSheetName">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_dicConfig(&quot;177ReportSheetName&quot;))" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_StrExcelPath">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strNoTimeRepPath" />
-        </InArgument>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-          <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_dicConfig" />
-        </InArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_Details">
-          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_details" />
-        </OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrJson">[strResponse]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrKey">[cstr(in_dicConfig("P003_090_TimesheetApprovals_177ResponseKey"))]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrExcelSheetName">[cstr(in_dicConfig("177ReportSheetName"))]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrExcelPath">[strNoTimeRepPath]</InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_dicConfig]</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_Details">[dt_details]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -230,28 +235,30 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <l:Upload_File sap2010:Annotation.AnnotationText="This will upload the Report file to sharepoint folder." DisplayName="Upload No Time Reported Report to Sharepoint" sap:VirtualizedContainerService.HintSize="423,94" sap2010:WorkflowViewState.IdRef="Upload_File_3" in_strApplicationIDAssetName="[cstr(in_dicConfig(&quot;O365ApplicationIDAssetName&quot;))]" in_strApplicationSecretAssetName="[cstr(in_dicConfig(&quot;O365ApplicationSecretAssetName&quot;))]" in_strOrchestratorFolderPath="[cstr(in_dicConfig(&quot;O365AssetsInOrchestratorFolder&quot;))]" in_strParentDriveItemOptional="[Nothing]" in_strSharepointParentFolderPath="[cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SPRootFolder&quot;))+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)+&quot;/&quot;+Now.ToString(&quot;MMMM&quot;)+&quot;/&quot;+in_dicConfig(&quot;SharepointInputFolderName&quot;).ToString+&quot;/&quot;+now.ToString(&quot;MM-dd-yyyy&quot;)]" in_strSharepointURL="[cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SPURL&quot;))]" in_strSharepointUploadFilePath="[strNoTimeRepPath]" in_strTenantIDAssetName="[cstr(in_dicConfig(&quot;O365TenantIDAssetName&quot;))]" out_boolFileUploaded="[boolFileUploaded]">
+    <l:Upload_File sap2010:Annotation.AnnotationText="This will upload the Report file to sharepoint folder." DisplayName="Upload No Time Reported Report to Sharepoint" sap:VirtualizedContainerService.HintSize="434,544" sap2010:WorkflowViewState.IdRef="Upload_File_3" in_strApplicationIDAssetName="[cstr(in_dicConfig(&quot;O365ApplicationIDAssetName&quot;))]" in_strApplicationSecretAssetName="[cstr(in_dicConfig(&quot;O365ApplicationSecretAssetName&quot;))]" in_strOrchestratorFolderPath="[cstr(in_dicConfig(&quot;O365AssetsInOrchestratorFolder&quot;))]" in_strParentDriveItemOptional="[Nothing]" in_strSharepointParentFolderPath="[cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SPRootFolder&quot;))+&quot;/AgencyData/&quot;+in_strAgencyCode+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)+&quot;/&quot;+Now.ToString(&quot;MMMM&quot;)+&quot;/&quot;+in_dicConfig(&quot;SharepointInputFolderName&quot;).ToString+&quot;/&quot;+now.ToString(&quot;MM-dd-yyyy&quot;)]" in_strSharepointURL="[cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SPURL&quot;))]" in_strSharepointUploadFilePath="[strNoTimeRepPath]" in_strTenantIDAssetName="[cstr(in_dicConfig(&quot;O365TenantIDAssetName&quot;))]" out_boolFileUploaded="[boolFileUploaded]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </l:Upload_File>
-    <If Condition="[dt_details.RowCount&gt;0]" DisplayName="If Data Exists" sap:VirtualizedContainerService.HintSize="423,724" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[dt_details.RowCount&gt;0]" DisplayName="If Data Exists" sap:VirtualizedContainerService.HintSize="434,746.6666666666666" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,313" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,330.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="This will add No Time Reported report details to Queue." DisplayName="Add Queue Item  No Time Reported Report" FolderPath="[cstr(in_dicConfig(&quot;OrchestratorQueueFolder&quot;))]" sap:VirtualizedContainerService.HintSize="334,225" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="[cstr(in_dicConfig(&quot;OrchestratorQueueName&quot;))]" Reference="[&quot;NoTimeReported &quot;+now.ToString(&quot;MM-dd-yyyy HH:mm&quot;)]">
+          <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="This will add No Time Reported report details to Queue." DisplayName="Add Queue Item  No Time Reported Report" FolderPath="[cstr(in_dicConfig(&quot;OrchestratorQueueFolder&quot;))]" sap:VirtualizedContainerService.HintSize="334,243.33333333333334" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="[cstr(in_dicConfig(&quot;OrchestratorQueueName&quot;))]" Reference="[in_stragencycode +&quot; - NoTimeReported &quot;+now.ToString(&quot;MM-dd-yyyy HH:mm&quot;)]">
             <ui:AddQueueItem.ItemInformation>
-              <InArgument x:TypeArguments="x:String" x:Key="FilePath">[cstr(in_dicConfig("P003_090_TimesheetApprovals_SPRootFolder"))+"/"+Now.ToString("yyyy")+"/"+Now.ToString("MMMM")+"/"+in_dicConfig("SharepointInputFolderName").ToString+"/"+now.ToString("MM-dd-yyyy")+"/"+strNoTimeRepFile]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="FilePath">[cstr(in_dicConfig("P003_090_TimesheetApprovals_SPRootFolder"))+"/AgencyData/"+in_strAgencyCode+"/"+Now.ToString("yyyy")+"/"+Now.ToString("MMMM")+"/"+in_dicConfig("SharepointInputFolderName").ToString+"/"+now.ToString("MM-dd-yyyy")+"/"+strNoTimeRepFile]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="SheetName">[cstr(in_dicConfig("177ReportSheetName"))]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="ReportType">NoTimeReported</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="AgencyCode">[in_strAgencyCode]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="EmailCC">[in_EmailCC]</InArgument>
             </ui:AddQueueItem.ItemInformation>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -262,16 +269,16 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,229" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,232" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message No Data No Time Report" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot; No Data Present in No Time Report&quot;]" />
+          <ui:LogMessage DisplayName="Log Message No Data No Time Report" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot; No Data Present in No Time Report&quot;]" />
         </Sequence>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Log No Time Reported Report (RPT00177) End" sap:VirtualizedContainerService.HintSize="423,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Process has completed for No Time Reported reported flow(RPT00177)&quot;]" />
+    <ui:LogMessage DisplayName="Log No Time Reported Report (RPT00177) End" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Process has completed for No Time Reported reported flow(RPT00177)&quot;]" />
   </Sequence>
 </Activity>

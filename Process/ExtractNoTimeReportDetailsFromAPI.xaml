@@ -11,7 +11,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1100,827</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2594,2032</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>RPT00169_ExtractReport_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -100,16 +100,16 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: Extracts No Time Reported(RPT00177) report for prev week." DisplayName="Sequence RPT00177_ExtractReport" sap:VirtualizedContainerService.HintSize="496,326" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence sap2010:Annotation.AnnotationText="Description: Extracts No Time Reported(RPT00177) report for prev week." DisplayName="Sequence RPT00177_ExtractReport" sap:VirtualizedContainerService.HintSize="572,1967" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch RPT00177_ExtractReport" sap:VirtualizedContainerService.HintSize="434,184" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch RPT00177_ExtractReport" sap:VirtualizedContainerService.HintSize="510,1825" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="Description: Extracts No Time Reported(RPT00177) report for prev week.&#xA;PreCondition: Access to workday API&#xA;PostCondition: Report is extracted as json format" DisplayName="RPT00177_ExtractReport" sap:VirtualizedContainerService.HintSize="472,138" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence sap2010:Annotation.AnnotationText="Description: Extracts No Time Reported(RPT00177) report for prev week.&#xA;PreCondition: Access to workday API&#xA;PostCondition: Report is extracted as json format" DisplayName="RPT00177_ExtractReport" sap:VirtualizedContainerService.HintSize="472,1597" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Int32" Name="intStatus" />
             <Variable x:TypeArguments="x:String" Name="strUserName" />
@@ -117,13 +117,13 @@
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:LogMessage DisplayName="Log Extract No Time Reported (RPT00177) Start" sap:VirtualizedContainerService.HintSize="410,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot; Start extracting No Time Reported report (RPT00177) details from Workday API&quot;]" />
-          <ui:GetRobotCredential TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="This will gets the credentials from assests for report No Time Reported report(RPT00177)." AssetName="[in_StrCredential]" CacheStrategy="None" DisplayName="Get No Time Reported(RPT00177) WorkDay API Credential" FolderPath="[in_StrOrchestratorFolder]" sap:VirtualizedContainerService.HintSize="410,185" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[secstrPassword]" Username="[strUserName]">
+          <ui:GetRobotCredential TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="This will gets the credentials from assests for report No Time Reported report(RPT00177)." AssetName="P003_090_TimesheetApprovals_RPT00177APICredentialv2" CacheStrategy="None" DisplayName="Get No Time Reported(RPT00177) WorkDay API Credential" FolderPath="[in_StrOrchestratorFolder]" sap:VirtualizedContainerService.HintSize="410,185" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[secstrPassword]" Username="[strUserName]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -141,10 +141,7 @@
               <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
             </ui:HttpClient.Headers>
             <ui:HttpClient.Parameters>
-              <InArgument x:TypeArguments="x:String" x:Key="Start_Date">[in_StrStartDate]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="End_Date">[In_StrEndDate]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="format">Json</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="Include_Subordinate_Organizations">0</InArgument>
+              <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
             </ui:HttpClient.Parameters>
             <ui:HttpClient.UrlSegments>
               <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
@@ -156,7 +153,7 @@
             </sap:WorkflowViewStateService.ViewState>
           </ui:HttpClient>
           <ui:LogMessage DisplayName="Log WorkDay API Status Code No Time Reported " sap:VirtualizedContainerService.HintSize="410,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;API response status code: &quot;+intStatus.ToString]" />
-          <If sap2010:Annotation.AnnotationText="This will checks the status of the WorkDay API status and throws exception if any." Condition="[intStatus&lt;&gt;200]" DisplayName="Check WorkDay API Status No Time Reported Report(RPT00177)" sap:VirtualizedContainerService.HintSize="410,723" sap2010:WorkflowViewState.IdRef="If_1">
+          <If sap2010:Annotation.AnnotationText="This will checks the status of the WorkDay API status and throws exception if any." Condition="[intStatus&lt;&gt;200]" DisplayName="Check WorkDay API Status No Time Reported Report(RPT00177)" sap:VirtualizedContainerService.HintSize="410,494" sap2010:WorkflowViewState.IdRef="If_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -209,7 +206,7 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="476,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>

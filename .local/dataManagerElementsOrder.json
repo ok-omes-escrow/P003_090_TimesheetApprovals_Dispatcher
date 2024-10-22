@@ -51,12 +51,19 @@
       "Path": "Framework/Process.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "strSubject&Sequence_1",
+        "strEmailCC&Sequence_8",
         "strException&Sequence_1",
-        "strReportsFailed&Sequence_1"
+        "strReportsFailed&Sequence_1",
+        "strSubject&Sequence_1",
+        "strAgencyRefFilePath&Sequence_1",
+        "dtAgencyRef&Sequence_1",
+        "strAgencyCode&Sequence_8",
+        "boolFolderExists&Sequence_10",
+        "intResCount&Sequence_10",
+        "out_strSubject&Sequence_11"
       ],
       "ArgumentsSectionElementsOrder": [
-        "io_Config"
+        "in_Config"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
@@ -126,6 +133,7 @@
       "Path": "Process/CreateNoTimeReport.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "strNewURL&Sequence_1",
         "dt_details&Sequence_1",
         "dateStartDate&Sequence_1",
         "dateEndDate&Sequence_1",
@@ -135,6 +143,8 @@
         "boolFileUploaded&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_EmailCC",
+        "in_strAgencyCode",
         "in_dicConfig"
       ],
       "ConstantsSectionElementsOrder": [],
@@ -144,15 +154,18 @@
       "Path": "Process/CreateNotSubmittedAndNotApprovedReport.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "dt_Details&Sequence_1",
+        "strNewURL&Sequence_1",
         "dateStartDate&Sequence_1",
         "dateEndDate&Sequence_1",
         "strResponse&Sequence_1",
         "strNotSubmittedPath&Sequence_1",
         "strNotSubmittedFile&Sequence_1",
-        "boolFileUploaded&Sequence_1"
+        "boolFileUploaded&Sequence_1",
+        "dt_Details&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_EmailCC",
+        "in_StrAgencycode",
         "in_dicConfig"
       ],
       "ConstantsSectionElementsOrder": [],
@@ -223,6 +236,7 @@
         "boolFolderCreated&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_strAgencyCode",
         "in_strOrchestratorFolderPath",
         "in_Config",
         "in_strTenantID",
@@ -315,6 +329,33 @@
         "in_StrExcelSheetName",
         "in_StrExcelPath",
         "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/GetSharePointAgencyReffile.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "blnFileDownloaded&Sequence_12",
+        "strDownloadFilePath&Sequence_12"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config",
+        "out_AgencyRefFilePath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/ReadAgencyRefFile.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dtAgencyRef&Sequence_13"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_strAgencyRefFilePath",
+        "out_dtAgencyRef"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null

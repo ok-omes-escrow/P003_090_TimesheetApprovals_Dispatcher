@@ -7,11 +7,12 @@
     <x:Property Name="in_strSharepointParentFolder" Type="InArgument(x:String)" />
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_strOrchestratorFolderPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_strAgencyCode" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1100,827</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2594,8151</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Test_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -134,16 +135,16 @@
       <AssemblyReference>LIB_GraphAPI</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This will checks whether the required folder present or not. If not it will create the folder and upload the file." DisplayName="Sequence Save File Into Sharepoint" sap:VirtualizedContainerService.HintSize="552,702" sap2010:WorkflowViewState.IdRef="Sequence_15">
+  <Sequence sap2010:Annotation.AnnotationText="This will checks whether the required folder present or not. If not it will create the folder and upload the file." DisplayName="Sequence Save File Into Sharepoint" sap:VirtualizedContainerService.HintSize="572,8086" sap2010:WorkflowViewState.IdRef="Sequence_15">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch Save File Into Sharepoint" sap:VirtualizedContainerService.HintSize="490,549" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch Save File Into Sharepoint" sap:VirtualizedContainerService.HintSize="510,7933" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="This will checks whether the required folder present or not. If not it will create the folder and upload the file." DisplayName="Save File Into Sharepoint" sap:VirtualizedContainerService.HintSize="450,123" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence sap2010:Annotation.AnnotationText="This will checks whether the required folder present or not. If not it will create the folder and upload the file." DisplayName="Save File Into Sharepoint" sap:VirtualizedContainerService.HintSize="472,7705" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="boolFolderExists" />
             <Variable x:TypeArguments="x:Int32" Name="intResultcount" />
@@ -151,32 +152,91 @@
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Sharepoint Upload Start" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Checking the folder existance and uploading the file has started&quot;]">
+          <ui:LogMessage DisplayName="Log Sharepoint Upload Start" sap:VirtualizedContainerService.HintSize="410,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Checking the folder existance and uploading the file has started&quot;]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:LogMessage>
-          <l:Files_or_Folders_Exist sap2010:Annotation.AnnotationText="This WIll check Year folder exists or not" DisplayName="Folders Exist Year" sap:VirtualizedContainerService.HintSize="388,94" sap2010:WorkflowViewState.IdRef="Files_or_Folders_Exist_8" in_strApplicationIDAssetName="[in_strApplicationID]" in_strApplicationSecretAssetName="[in_strApplicationSecretName]" in_strOrchestratorFolderPath="[in_strOrchestratorFolderPath]" in_strSharepointFileFolderToSearch="[Now.ToString(&quot;yyyy&quot;)]" in_strSharepointSubfolder="[in_strSharepointParentFolder]" in_strSharepointURL="[in_strSharePtURL]" in_strTenantIDAssetName="[in_strTenantID]" out_boolResultFileFolderFound="[boolFolderExists]" out_intResultCount="[intResultcount]">
+          <l:Files_or_Folders_Exist sap2010:Annotation.AnnotationText="This WIll check Year folder exists or not" DisplayName="Folders Exist AgencyCode" sap:VirtualizedContainerService.HintSize="410,529" sap2010:WorkflowViewState.IdRef="Files_or_Folders_Exist_12" in_strApplicationIDAssetName="[in_strApplicationID]" in_strApplicationSecretAssetName="[in_strApplicationSecretName]" in_strOrchestratorFolderPath="[in_strOrchestratorFolderPath]" in_strSharepointFileFolderToSearch="[in_stragencycode]" in_strSharepointSubfolder="[in_strSharepointParentFolder+&quot;/AgencyData&quot;]" in_strSharepointURL="[in_strSharePtURL]" in_strTenantIDAssetName="[in_strTenantID]" out_boolResultFileFolderFound="[boolFolderExists]" out_intResultCount="[intResultcount]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </l:Files_or_Folders_Exist>
-          <If sap2010:Annotation.AnnotationText="This will create yearly folder if not present." Condition="[not(boolFolderExists)]" DisplayName="Check Year Folder Exists" sap:VirtualizedContainerService.HintSize="388,94" sap2010:WorkflowViewState.IdRef="If_1">
+          <If sap2010:Annotation.AnnotationText="This will create yearly folder if not present." Condition="[not(boolFolderExists)]" DisplayName="Check AgencyCode Folder Exists" sap:VirtualizedContainerService.HintSize="410,1189" sap2010:WorkflowViewState.IdRef="If_6">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="376,747" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <l:Create_Folder sap2010:Annotation.AnnotationText="This will create yearly folder if not present." DisplayName="Create Folder Agency" sap:VirtualizedContainerService.HintSize="334,478" sap2010:WorkflowViewState.IdRef="Create_Folder_17" in_strApplicationIDAssetName="[in_strApplicationID]" in_strApplicationSecretAssetName="[in_strApplicationSecretName]" in_strOrchestratorFolderPath="[in_strOrchestratorFolderPath]" in_strSharepointNewFolderName="[in_stragencycode]" in_strSharepointParentFolderPath="[in_strSharepointParentFolder+&quot;/AgencyData&quot;]" in_strSharepointURL="[in_strSharePtURL]" in_strTenantIDAssetName="[in_strTenantID]" out_boolFolderCreated="[boolFolderCreated]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </l:Create_Folder>
+                <ui:LogMessage DisplayName="Log Yearly Folder Exists End" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Folder '&quot;+in_strAgencyCode+&quot;' created for current Agency in &quot;+in_strSharepointParentFolder+&quot;/AgencyData/ folder.&quot;]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:LogMessage>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence sap:VirtualizedContainerService.HintSize="376,229" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Yearly Folder Exists End" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Folder for current Agency is present&quot;]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:LogMessage>
+              </Sequence>
+            </If.Else>
+          </If>
+          <l:Files_or_Folders_Exist sap2010:Annotation.AnnotationText="This WIll check Year folder exists or not" DisplayName="Folders Exist Year" sap:VirtualizedContainerService.HintSize="410,529" sap2010:WorkflowViewState.IdRef="Files_or_Folders_Exist_8" in_strApplicationIDAssetName="[in_strApplicationID]" in_strApplicationSecretAssetName="[in_strApplicationSecretName]" in_strOrchestratorFolderPath="[in_strOrchestratorFolderPath]" in_strSharepointFileFolderToSearch="[Now.ToString(&quot;yyyy&quot;)]" in_strSharepointSubfolder="[in_strSharepointParentFolder+&quot;/AgencyData/&quot;+in_strAgencyCode]" in_strSharepointURL="[in_strSharePtURL]" in_strTenantIDAssetName="[in_strTenantID]" out_boolResultFileFolderFound="[boolFolderExists]" out_intResultCount="[intResultcount]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </l:Files_or_Folders_Exist>
+          <If sap2010:Annotation.AnnotationText="This will create yearly folder if not present." Condition="[not(boolFolderExists)]" DisplayName="Check Year Folder Exists" sap:VirtualizedContainerService.HintSize="410,779" sap2010:WorkflowViewState.IdRef="If_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
@@ -188,7 +248,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <l:Create_Folder sap2010:Annotation.AnnotationText="This will create yearly folder if not present." DisplayName="Create Folder Year" sap:VirtualizedContainerService.HintSize="334,478" sap2010:WorkflowViewState.IdRef="Create_Folder_13" in_strApplicationIDAssetName="[in_strApplicationID]" in_strApplicationSecretAssetName="[in_strApplicationSecretName]" in_strOrchestratorFolderPath="[in_strOrchestratorFolderPath]" in_strSharepointNewFolderName="[Now.ToString(&quot;yyyy&quot;)]" in_strSharepointParentFolderPath="[in_strSharepointParentFolder]" in_strSharepointURL="[in_strSharePtURL]" in_strTenantIDAssetName="[in_strTenantID]" out_boolFolderCreated="[boolFolderCreated]">
+                <l:Create_Folder sap2010:Annotation.AnnotationText="This will create yearly folder if not present." DisplayName="Create Folder Year" sap:VirtualizedContainerService.HintSize="334,478" sap2010:WorkflowViewState.IdRef="Create_Folder_13" in_strApplicationIDAssetName="[in_strApplicationID]" in_strApplicationSecretAssetName="[in_strApplicationSecretName]" in_strOrchestratorFolderPath="[in_strOrchestratorFolderPath]" in_strSharepointNewFolderName="[Now.ToString(&quot;yyyy&quot;)]" in_strSharepointParentFolderPath="[in_strSharepointParentFolder+&quot;/AgencyData/&quot;+ in_strAgencyCode]" in_strSharepointURL="[in_strSharePtURL]" in_strTenantIDAssetName="[in_strTenantID]" out_boolFolderCreated="[boolFolderCreated]">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -215,19 +275,19 @@
               </Sequence>
             </If.Else>
           </If>
-          <l:Files_or_Folders_Exist sap2010:Annotation.AnnotationText="This will checks Monthly folder exists or not." DisplayName="Folders Exist Month" sap:VirtualizedContainerService.HintSize="388,94" sap2010:WorkflowViewState.IdRef="Files_or_Folders_Exist_9" in_strApplicationIDAssetName="[in_strApplicationID]" in_strApplicationSecretAssetName="[in_strApplicationSecretName]" in_strOrchestratorFolderPath="[in_strOrchestratorFolderPath]" in_strSharepointFileFolderToSearch="[Now.ToString(&quot;MMMM&quot;)]" in_strSharepointSubfolder="[in_strSharepointParentFolder+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)]" in_strSharepointURL="[in_strSharePtURL]" in_strTenantIDAssetName="[in_strTenantID]" out_boolResultFileFolderFound="[boolFolderExists]" out_intResultCount="[intResultcount]">
+          <l:Files_or_Folders_Exist sap2010:Annotation.AnnotationText="This will checks Monthly folder exists or not." DisplayName="Folders Exist Month" sap:VirtualizedContainerService.HintSize="410,529" sap2010:WorkflowViewState.IdRef="Files_or_Folders_Exist_9" in_strApplicationIDAssetName="[in_strApplicationID]" in_strApplicationSecretAssetName="[in_strApplicationSecretName]" in_strOrchestratorFolderPath="[in_strOrchestratorFolderPath]" in_strSharepointFileFolderToSearch="[Now.ToString(&quot;MMMM&quot;)]" in_strSharepointSubfolder="[in_strSharepointParentFolder+&quot;/AgencyData/&quot;+ in_strAgencyCode+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)]" in_strSharepointURL="[in_strSharePtURL]" in_strTenantIDAssetName="[in_strTenantID]" out_boolResultFileFolderFound="[boolFolderExists]" out_intResultCount="[intResultcount]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </l:Files_or_Folders_Exist>
-          <If sap2010:Annotation.AnnotationText="This will checks monthly folder and creates if not present." Condition="[not(boolFolderExists)]" DisplayName="Check Month Folder Exists" sap:VirtualizedContainerService.HintSize="388,109" sap2010:WorkflowViewState.IdRef="If_2">
+          <If sap2010:Annotation.AnnotationText="This will checks monthly folder and creates if not present." Condition="[not(boolFolderExists)]" DisplayName="Check Month Folder Exists" sap:VirtualizedContainerService.HintSize="410,779" sap2010:WorkflowViewState.IdRef="If_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
@@ -239,7 +299,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <l:Create_Folder sap2010:Annotation.AnnotationText="This will creates monthly folder" DisplayName="Create Month Folder" sap:VirtualizedContainerService.HintSize="334,478" sap2010:WorkflowViewState.IdRef="Create_Folder_14" in_strApplicationIDAssetName="[in_strApplicationID]" in_strApplicationSecretAssetName="[in_strApplicationSecretName]" in_strOrchestratorFolderPath="[in_strOrchestratorFolderPath]" in_strSharepointNewFolderName="[Now.ToString(&quot;MMMM&quot;)]" in_strSharepointParentFolderPath="[in_strSharepointParentFolder+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)]" in_strSharepointURL="[in_strSharePtURL]" in_strTenantIDAssetName="[in_strTenantID]" out_boolFolderCreated="[boolFolderCreated]">
+                <l:Create_Folder sap2010:Annotation.AnnotationText="This will creates monthly folder" DisplayName="Create Month Folder" sap:VirtualizedContainerService.HintSize="334,478" sap2010:WorkflowViewState.IdRef="Create_Folder_14" in_strApplicationIDAssetName="[in_strApplicationID]" in_strApplicationSecretAssetName="[in_strApplicationSecretName]" in_strOrchestratorFolderPath="[in_strOrchestratorFolderPath]" in_strSharepointNewFolderName="[Now.ToString(&quot;MMMM&quot;)]" in_strSharepointParentFolderPath="[in_strSharepointParentFolder+&quot;/AgencyData/&quot;+ in_strAgencyCode+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)]" in_strSharepointURL="[in_strSharePtURL]" in_strTenantIDAssetName="[in_strTenantID]" out_boolFolderCreated="[boolFolderCreated]">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -266,19 +326,19 @@
               </Sequence>
             </If.Else>
           </If>
-          <l:Files_or_Folders_Exist sap2010:Annotation.AnnotationText="This will checks input folder exists or not." DisplayName="Folders Exist Input" sap:VirtualizedContainerService.HintSize="388,94" sap2010:WorkflowViewState.IdRef="Files_or_Folders_Exist_10" in_strApplicationIDAssetName="[in_strApplicationID]" in_strApplicationSecretAssetName="[in_strApplicationSecretName]" in_strOrchestratorFolderPath="[in_strOrchestratorFolderPath]" in_strSharepointFileFolderToSearch="[in_Config(&quot;SharepointInputFolderName&quot;).ToString]" in_strSharepointSubfolder="[in_strSharepointParentFolder+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)+&quot;/&quot;+Now.ToString(&quot;MMMM&quot;)]" in_strSharepointURL="[in_strSharePtURL]" in_strTenantIDAssetName="[in_strTenantID]" out_boolResultFileFolderFound="[boolFolderExists]" out_intResultCount="[intResultcount]">
+          <l:Files_or_Folders_Exist sap2010:Annotation.AnnotationText="This will checks input folder exists or not." DisplayName="Folders Exist Input" sap:VirtualizedContainerService.HintSize="410,529" sap2010:WorkflowViewState.IdRef="Files_or_Folders_Exist_10" in_strApplicationIDAssetName="[in_strApplicationID]" in_strApplicationSecretAssetName="[in_strApplicationSecretName]" in_strOrchestratorFolderPath="[in_strOrchestratorFolderPath]" in_strSharepointFileFolderToSearch="[in_Config(&quot;SharepointInputFolderName&quot;).ToString]" in_strSharepointSubfolder="[in_strSharepointParentFolder+&quot;/AgencyData/&quot;+ in_strAgencyCode+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)+&quot;/&quot;+Now.ToString(&quot;MMMM&quot;)]" in_strSharepointURL="[in_strSharePtURL]" in_strTenantIDAssetName="[in_strTenantID]" out_boolResultFileFolderFound="[boolFolderExists]" out_intResultCount="[intResultcount]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </l:Files_or_Folders_Exist>
-          <If sap2010:Annotation.AnnotationText="This will checks Input folder and creates if not present." Condition="[not(boolFolderExists)]" DisplayName="Check Input Folder Exists" sap:VirtualizedContainerService.HintSize="388,94" sap2010:WorkflowViewState.IdRef="If_5">
+          <If sap2010:Annotation.AnnotationText="This will checks Input folder and creates if not present." Condition="[not(boolFolderExists)]" DisplayName="Check Input Folder Exists" sap:VirtualizedContainerService.HintSize="410,779" sap2010:WorkflowViewState.IdRef="If_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
@@ -290,7 +350,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <l:Create_Folder sap2010:Annotation.AnnotationText="This will creates monthly folder" DisplayName="Create Folder Input" sap:VirtualizedContainerService.HintSize="334,478" sap2010:WorkflowViewState.IdRef="Create_Folder_15" in_strApplicationIDAssetName="[in_strApplicationID]" in_strApplicationSecretAssetName="[in_strApplicationSecretName]" in_strOrchestratorFolderPath="[in_strOrchestratorFolderPath]" in_strSharepointNewFolderName="[in_Config(&quot;SharepointInputFolderName&quot;).ToString]" in_strSharepointParentFolderPath="[in_strSharepointParentFolder+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)+&quot;/&quot;+Now.ToString(&quot;MMMM&quot;)]" in_strSharepointURL="[in_strSharePtURL]" in_strTenantIDAssetName="[in_strTenantID]" out_boolFolderCreated="[boolFolderCreated]">
+                <l:Create_Folder sap2010:Annotation.AnnotationText="This will creates monthly folder" DisplayName="Create Folder Input" sap:VirtualizedContainerService.HintSize="334,478" sap2010:WorkflowViewState.IdRef="Create_Folder_15" in_strApplicationIDAssetName="[in_strApplicationID]" in_strApplicationSecretAssetName="[in_strApplicationSecretName]" in_strOrchestratorFolderPath="[in_strOrchestratorFolderPath]" in_strSharepointNewFolderName="[in_Config(&quot;SharepointInputFolderName&quot;).ToString]" in_strSharepointParentFolderPath="[in_strSharepointParentFolder+&quot;/AgencyData/&quot;+ in_strAgencyCode+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)+&quot;/&quot;+Now.ToString(&quot;MMMM&quot;)]" in_strSharepointURL="[in_strSharePtURL]" in_strTenantIDAssetName="[in_strTenantID]" out_boolFolderCreated="[boolFolderCreated]">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -317,19 +377,19 @@
               </Sequence>
             </If.Else>
           </If>
-          <l:Files_or_Folders_Exist sap2010:Annotation.AnnotationText="This will check todays folder exists or not." DisplayName="Folders Exists Day" sap:VirtualizedContainerService.HintSize="388,94" sap2010:WorkflowViewState.IdRef="Files_or_Folders_Exist_11" in_strApplicationIDAssetName="[in_strApplicationID]" in_strApplicationSecretAssetName="[in_strApplicationSecretName]" in_strOrchestratorFolderPath="[in_strOrchestratorFolderPath]" in_strSharepointFileFolderToSearch="[now.ToString(&quot;MM-dd-yyyy&quot;)]" in_strSharepointSubfolder="[in_strSharepointParentFolder+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)+&quot;/&quot;+Now.ToString(&quot;MMMM&quot;)+&quot;/&quot;+in_Config(&quot;SharepointInputFolderName&quot;).ToString]" in_strSharepointURL="[in_strSharePtURL]" in_strTenantIDAssetName="[in_strTenantID]" out_boolResultFileFolderFound="[boolFolderExists]" out_intResultCount="[intResultcount]">
+          <l:Files_or_Folders_Exist sap2010:Annotation.AnnotationText="This will check todays folder exists or not." DisplayName="Folders Exists Day" sap:VirtualizedContainerService.HintSize="410,529" sap2010:WorkflowViewState.IdRef="Files_or_Folders_Exist_11" in_strApplicationIDAssetName="[in_strApplicationID]" in_strApplicationSecretAssetName="[in_strApplicationSecretName]" in_strOrchestratorFolderPath="[in_strOrchestratorFolderPath]" in_strSharepointFileFolderToSearch="[now.ToString(&quot;MM-dd-yyyy&quot;)]" in_strSharepointSubfolder="[in_strSharepointParentFolder+&quot;/AgencyData/&quot;+ in_strAgencyCode+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)+&quot;/&quot;+Now.ToString(&quot;MMMM&quot;)+&quot;/&quot;+in_Config(&quot;SharepointInputFolderName&quot;).ToString]" in_strSharepointURL="[in_strSharePtURL]" in_strTenantIDAssetName="[in_strTenantID]" out_boolResultFileFolderFound="[boolFolderExists]" out_intResultCount="[intResultcount]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </l:Files_or_Folders_Exist>
-          <If sap2010:Annotation.AnnotationText="This will check and creates today folder if not present." Condition="[not(boolFolderExists)]" DisplayName="Check Day Folder Exists" sap:VirtualizedContainerService.HintSize="388,94" sap2010:WorkflowViewState.IdRef="If_3">
+          <If sap2010:Annotation.AnnotationText="This will check and creates today folder if not present." Condition="[not(boolFolderExists)]" DisplayName="Check Day Folder Exists" sap:VirtualizedContainerService.HintSize="410,748" sap2010:WorkflowViewState.IdRef="If_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
@@ -341,7 +401,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <l:Create_Folder sap2010:Annotation.AnnotationText="This will creates todays folder." DisplayName="Create Folder Day" sap:VirtualizedContainerService.HintSize="334,447" sap2010:WorkflowViewState.IdRef="Create_Folder_16" in_strApplicationIDAssetName="[in_strApplicationID]" in_strApplicationSecretAssetName="[in_strApplicationSecretName]" in_strOrchestratorFolderPath="[in_strOrchestratorFolderPath]" in_strSharepointNewFolderName="[now.ToString(&quot;MM-dd-yyyy&quot;)]" in_strSharepointParentFolderPath="[in_strSharepointParentFolder+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)+&quot;/&quot;+Now.ToString(&quot;MMMM&quot;)+&quot;/&quot;+in_Config(&quot;SharepointInputFolderName&quot;).ToString]" in_strSharepointURL="[in_strSharePtURL]" in_strTenantIDAssetName="[in_strTenantID]" out_boolFolderCreated="[boolFolderCreated]">
+                <l:Create_Folder sap2010:Annotation.AnnotationText="This will creates todays folder." DisplayName="Create Folder Day" sap:VirtualizedContainerService.HintSize="334,447" sap2010:WorkflowViewState.IdRef="Create_Folder_16" in_strApplicationIDAssetName="[in_strApplicationID]" in_strApplicationSecretAssetName="[in_strApplicationSecretName]" in_strOrchestratorFolderPath="[in_strOrchestratorFolderPath]" in_strSharepointNewFolderName="[now.ToString(&quot;MM-dd-yyyy&quot;)]" in_strSharepointParentFolderPath="[in_strSharepointParentFolder+&quot;/AgencyData/&quot;+ in_strAgencyCode+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)+&quot;/&quot;+Now.ToString(&quot;MMMM&quot;)+&quot;/&quot;+in_Config(&quot;SharepointInputFolderName&quot;).ToString]" in_strSharepointURL="[in_strSharePtURL]" in_strTenantIDAssetName="[in_strTenantID]" out_boolFolderCreated="[boolFolderCreated]">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
@@ -368,7 +428,7 @@
               </Sequence>
             </If.Else>
           </If>
-          <ui:LogMessage DisplayName="Log Message Sharepoint End" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot; Completed the sharepoint file upload part.&quot;]">
+          <ui:LogMessage DisplayName="Log Message Sharepoint End" sap:VirtualizedContainerService.HintSize="410,52" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot; Completed the sharepoint file upload part.&quot;]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -379,10 +439,10 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="456,386" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="476,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>

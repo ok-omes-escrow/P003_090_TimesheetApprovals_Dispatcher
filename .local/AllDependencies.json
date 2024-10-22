@@ -20818,15 +20818,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\55646C\\.nuget\\packages\\": {}
+    "C:\\Users\\57145C\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "P003_090_TimesheetApprovals_Dispatcher",
       "projectName": "P003_090_TimesheetApprovals_Dispatcher",
-      "projectPath": "C:\\Users\\55646C\\Documents\\GitHub\\P003_090_TimesheetApprovals_Dispatcher\\.local",
-      "packagesPath": "C:\\Users\\55646C\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\55646C\\Documents\\GitHub\\P003_090_TimesheetApprovals_Dispatcher\\.local"
+      "projectPath": "C:\\Users\\57145C\\Documents\\UiPath\\P003_090_TimesheetApprovals_Dispatcher\\.local",
+      "packagesPath": "C:\\Users\\57145C\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\57145C\\Documents\\UiPath\\P003_090_TimesheetApprovals_Dispatcher\\.local"
     },
     "frameworks": {
       "net6.0-windows7.0": {
