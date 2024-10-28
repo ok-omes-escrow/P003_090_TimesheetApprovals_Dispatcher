@@ -3,6 +3,7 @@
     <x:Property Name="in_dicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_strAgencyCode" Type="InArgument(x:String)" />
     <x:Property Name="in_EmailCC" Type="InArgument(x:String)" />
+    <x:Property Name="in_OutgoingEmailCC" Type="InArgument(x:String)" />
   </x:Members>
   <this:RPT00177.in_strAgencyCode>
     <InArgument x:TypeArguments="x:String" />
@@ -10,10 +11,13 @@
   <this:RPT00177.in_EmailCC>
     <InArgument x:TypeArguments="x:String" />
   </this:RPT00177.in_EmailCC>
+  <this:RPT00177.in_OutgoingEmailCC>
+    <InArgument x:TypeArguments="x:String" />
+  </this:RPT00177.in_OutgoingEmailCC>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1149.3333333333333,3078</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>871.3333333333334,2846</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>RPT00169_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -130,7 +134,7 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: This xaml integrates all the flows related to No Time Reported Report( RPT00177)&#xA;PreCondition: Access to Workday API&#xA;PostCondition: Report details are extracted as excel" DisplayName="RPT00177" sap:VirtualizedContainerService.HintSize="496,3013.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: This xaml integrates all the flows related to No Time Reported Report( RPT00177)&#xA;PreCondition: Access to Workday API&#xA;PostCondition: Report details are extracted as excel" DisplayName="RPT00177" sap:VirtualizedContainerService.HintSize="496,2781.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:DateTime" Name="dateStartDate" />
       <Variable x:TypeArguments="s:DateTime" Name="dateEndDate" />
@@ -244,7 +248,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </l:Upload_File>
-    <If Condition="[dt_details.RowCount&gt;0]" DisplayName="If Data Exists" sap:VirtualizedContainerService.HintSize="434,746.6666666666666" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[dt_details.RowCount&gt;0]" DisplayName="If Data Exists" sap:VirtualizedContainerService.HintSize="434,514.6666666666666" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="376,330.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
@@ -259,6 +263,7 @@
               <InArgument x:TypeArguments="x:String" x:Key="ReportType">NoTimeReported</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="AgencyCode">[in_strAgencyCode]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="EmailCC">[in_EmailCC]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="OutgoingEmailCC">[in_OutgoingEmailCC]</InArgument>
             </ui:AddQueueItem.ItemInformation>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">

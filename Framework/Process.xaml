@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1149.3333333333333,6048</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>871.3333333333334,5694.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="100">
@@ -137,7 +137,7 @@
       <AssemblyReference>Microsoft.Graph.Core</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="730,5983.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="730,5630" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strException" />
       <Variable x:TypeArguments="x:String" Name="strReportsFailed" />
@@ -164,39 +164,54 @@
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtAgencyRef">[dtAgencyRef]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtAgencyRef]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="668,4776.666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtAgencyRef]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="668,4423.333333333333" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="634,4656.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="634,4303.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="strAgencyCode" />
               <Variable x:TypeArguments="x:String" Name="strEmailCC" />
+              <Variable x:TypeArguments="x:String" Name="strOutgoingEmailCC" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="572,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_9">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[strAgencyCode]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[CurrentRow("AgencyCode").ToString]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="572,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_11">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[strEmailCC]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[CurrentRow("EmailCC").ToString]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <Sequence sap:VirtualizedContainerService.HintSize="572,2385.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="572,162" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[strAgencyCode]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[CurrentRow("AgencyCode").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[strEmailCC]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[CurrentRow("EmailCC").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[strOutgoingEmailCC]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[CurrentRow("OutgoingEmailCC").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+            <Sequence sap:VirtualizedContainerService.HintSize="572,2080.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_10">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:Boolean" Name="boolFolderExists" />
                 <Variable x:TypeArguments="x:Int32" Name="intResCount" />
@@ -206,7 +221,7 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message Sharepoint Connection Start" sap:VirtualizedContainerService.HintSize="510,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Trace" Message="[&quot; Share point connection checking has started&quot;]">
+              <ui:LogMessage DisplayName="Log Message Sharepoint Connection Start" sap:VirtualizedContainerService.HintSize="410,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Trace" Message="[&quot; Share point connection checking has started&quot;]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -214,7 +229,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:LogMessage>
-              <l:Files_or_Folders_Exist in_strSharepointSubfolder="{x:Null}" sap2010:Annotation.AnnotationText="Ths will give the sahrepoint connecvity details." DisplayName="Sharepoint Connectivity Exists" sap:VirtualizedContainerService.HintSize="510,544" sap2010:WorkflowViewState.IdRef="Files_or_Folders_Exist_1" in_strApplicationIDAssetName="[cstr(in_Config(&quot;O365ApplicationIDAssetName&quot;))]" in_strApplicationSecretAssetName="[cstr(in_Config(&quot;O365ApplicationSecretAssetName&quot;))]" in_strOrchestratorFolderPath="[cstr(in_Config(&quot;O365AssetsInOrchestratorFolder&quot;))]" in_strSharepointFileFolderToSearch="[cstr(in_Config(&quot;P003_090_TimesheetApprovals_SPRootFolder&quot;))]" in_strSharepointURL="[CStr(in_Config(&quot;P003_090_TimesheetApprovals_SPURL&quot;))]" in_strTenantIDAssetName="[CStr(in_Config(&quot;O365TenantIDAssetName&quot;))]" out_boolResultFileFolderFound="[boolFolderExists]" out_intResultCount="[intResCount]">
+              <l:Files_or_Folders_Exist in_strSharepointSubfolder="{x:Null}" sap2010:Annotation.AnnotationText="Ths will give the sahrepoint connecvity details." DisplayName="Sharepoint Connectivity Exists" sap:VirtualizedContainerService.HintSize="410,544" sap2010:WorkflowViewState.IdRef="Files_or_Folders_Exist_1" in_strApplicationIDAssetName="[cstr(in_Config(&quot;O365ApplicationIDAssetName&quot;))]" in_strApplicationSecretAssetName="[cstr(in_Config(&quot;O365ApplicationSecretAssetName&quot;))]" in_strOrchestratorFolderPath="[cstr(in_Config(&quot;O365AssetsInOrchestratorFolder&quot;))]" in_strSharepointFileFolderToSearch="[cstr(in_Config(&quot;P003_090_TimesheetApprovals_SPRootFolder&quot;))]" in_strSharepointURL="[CStr(in_Config(&quot;P003_090_TimesheetApprovals_SPURL&quot;))]" in_strTenantIDAssetName="[CStr(in_Config(&quot;O365TenantIDAssetName&quot;))]" out_boolResultFileFolderFound="[boolFolderExists]" out_intResultCount="[intResCount]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -223,7 +238,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </l:Files_or_Folders_Exist>
-              <If sap2010:Annotation.AnnotationText="This Will throw sharepoint connecvity error if not present." Condition="[boolFolderExists]" DisplayName="If Sharepoint Connectivity Exists" sap:VirtualizedContainerService.HintSize="510,751.3333333333334" sap2010:WorkflowViewState.IdRef="If_2">
+              <If sap2010:Annotation.AnnotationText="This Will throw sharepoint connecvity error if not present." Condition="[boolFolderExists]" DisplayName="If Sharepoint Connectivity Exists" sap:VirtualizedContainerService.HintSize="410,446.6666666666667" sap2010:WorkflowViewState.IdRef="If_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -263,7 +278,7 @@
                   </Sequence>
                 </If.Else>
               </If>
-              <ui:LogMessage DisplayName="Log Message Sharepoint Connection Check End" sap:VirtualizedContainerService.HintSize="510,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Trace" Message="[&quot;Sharepoint connection tested successfully.&quot;]">
+              <ui:LogMessage DisplayName="Log Message Sharepoint Connection Check End" sap:VirtualizedContainerService.HintSize="410,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Trace" Message="[&quot;Sharepoint connection tested successfully.&quot;]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -271,7 +286,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:LogMessage>
-              <ui:LogMessage DisplayName="Log Message Sharepoint Folder Creation Start" sap:VirtualizedContainerService.HintSize="510,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Trace" Message="[&quot;Sharepoint folder checking and creation if required has started&quot;]">
+              <ui:LogMessage DisplayName="Log Message Sharepoint Folder Creation Start" sap:VirtualizedContainerService.HintSize="410,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Trace" Message="[&quot;Sharepoint folder checking and creation if required has started&quot;]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -279,7 +294,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:LogMessage>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will checks whether the required folder present or not. If not it will create the folder." DisplayName="Create Sharepoint Folders If Required" sap:VirtualizedContainerService.HintSize="510,160.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Process\CreateSharepointFolders.xaml">
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will checks whether the required folder present or not. If not it will create the folder." DisplayName="Create Sharepoint Folders If Required" sap:VirtualizedContainerService.HintSize="410,160.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Process\CreateSharepointFolders.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="x:String" x:Key="in_strTenantID">[cstr(in_Config("O365TenantIDAssetName"))]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="in_strApplicationID">[cstr(in_Config("O365ApplicationIDAssetName"))]</InArgument>
@@ -296,7 +311,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:InvokeWorkflowFile>
-              <ui:LogMessage DisplayName="Log Message Sharepoint Folder Creation End" sap:VirtualizedContainerService.HintSize="510,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Trace" Message="[&quot;Sharepoint folder checking and creation if required has ended&quot;]">
+              <ui:LogMessage DisplayName="Log Message Sharepoint Folder Creation End" sap:VirtualizedContainerService.HintSize="410,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Trace" Message="[&quot;Sharepoint folder checking and creation if required has ended&quot;]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -360,6 +375,9 @@
                       <InArgument x:TypeArguments="x:String" x:Key="in_EmailCC">
                         <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strEmailCC" />
                       </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_OutgoingEmailCC">
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strOutgoingEmailCC" />
+                      </InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                 </Sequence>
@@ -376,7 +394,7 @@
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="No TIme Reported Report Exception" sap:VirtualizedContainerService.HintSize="496,542" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <Sequence DisplayName="No TIme Reported Report Exception" sap:VirtualizedContainerService.HintSize="496,536.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_4">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -433,6 +451,9 @@
                     <InArgument x:TypeArguments="x:String" x:Key="in_EmailCC">
                       <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strEmailCC" />
                     </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_OutgoingEmailCC">
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strOutgoingEmailCC" />
+                    </InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
               </TryCatch.Try>
@@ -448,7 +469,7 @@
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Not Submitted Not Approved Exception" sap:VirtualizedContainerService.HintSize="496,534" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <Sequence DisplayName="Not Submitted Not Approved Exception" sap:VirtualizedContainerService.HintSize="496,542" sap2010:WorkflowViewState.IdRef="Sequence_5">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>

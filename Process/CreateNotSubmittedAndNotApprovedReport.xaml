@@ -1,13 +1,17 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="RPT00169" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:l="clr-namespace:LIB_GraphAPI;assembly=LIB_GraphAPI" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="RPT00169" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:l="clr-namespace:LIB_GraphAPI;assembly=LIB_GraphAPI" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_dicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_StrAgencycode" Type="InArgument(x:String)" />
     <x:Property Name="in_EmailCC" Type="InArgument(x:String)" />
+    <x:Property Name="in_OutgoingEmailCC" Type="InArgument(x:String)" />
   </x:Members>
+  <this:RPT00169.in_OutgoingEmailCC>
+    <InArgument x:TypeArguments="x:String" />
+  </this:RPT00169.in_OutgoingEmailCC>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1153.3333333333333,3346</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>871.3333333333334,3116.6666666666665</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>RPT00169_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -124,7 +128,7 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: This xaml integrates all the flows related to Not Submitted and Not Approved eports( RPT00169)&#xA;PreCondition: Access to Workday API&#xA;PostCondition: Report details are extracted as excel" DisplayName="RPT00169" sap:VirtualizedContainerService.HintSize="496,3281.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: This xaml integrates all the flows related to Not Submitted and Not Approved eports( RPT00169)&#xA;PreCondition: Access to Workday API&#xA;PostCondition: Report details are extracted as excel" DisplayName="RPT00169" sap:VirtualizedContainerService.HintSize="496,3052" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:DateTime" Name="dateStartDate" />
       <Variable x:TypeArguments="s:DateTime" Name="dateEndDate" />
@@ -232,7 +236,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </l:Upload_File>
-    <If Condition="[dt_Details.RowCount&gt;0]" DisplayName="If Data Present Not Submitted" sap:VirtualizedContainerService.HintSize="434,998" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[dt_Details.RowCount&gt;0]" DisplayName="If Data Present Not Submitted" sap:VirtualizedContainerService.HintSize="434,768.6666666666666" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="376,584.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
@@ -247,6 +251,7 @@
               <InArgument x:TypeArguments="x:String" x:Key="ReportType">NotSubmitted</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="AgencyCode">[in_StrAgencycode]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="EmailCC">[in_EmailCC]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="OutgoingEmailCC">[in_OutgoingEmailCC]</InArgument>
             </ui:AddQueueItem.ItemInformation>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -263,6 +268,7 @@
               <InArgument x:TypeArguments="x:String" x:Key="ReportType">NotApproved</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="AgencyCode">[in_StrAgencycode]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="EmailCC">[in_EmailCC]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="OutgoingEmailCC">[in_OutgoingEmailCC]</InArgument>
             </ui:AddQueueItem.ItemInformation>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
