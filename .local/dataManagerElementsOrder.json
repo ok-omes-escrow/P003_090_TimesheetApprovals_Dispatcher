@@ -51,6 +51,7 @@
       "Path": "Framework/Process.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "strOutgoingEmailCC&Sequence_8",
         "strEmailCC&Sequence_8",
         "strException&Sequence_1",
         "strReportsFailed&Sequence_1",
@@ -143,6 +144,7 @@
         "boolFileUploaded&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_OutgoingEmailCC",
         "in_EmailCC",
         "in_strAgencyCode",
         "in_dicConfig"
@@ -164,6 +166,7 @@
         "dt_Details&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_OutgoingEmailCC",
         "in_EmailCC",
         "in_StrAgencycode",
         "in_dicConfig"
