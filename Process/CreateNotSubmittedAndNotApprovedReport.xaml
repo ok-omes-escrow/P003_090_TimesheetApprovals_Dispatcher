@@ -6,6 +6,8 @@
     <x:Property Name="in_OutgoingEmailCC" Type="InArgument(x:String)" />
     <x:Property Name="in_bcc" Type="InArgument(x:Boolean)" />
     <x:Property Name="in_attachment" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_strExclusionUser" Type="InArgument(x:String)" />
+    <x:Property Name="in_strExclusionSupervisor" Type="InArgument(x:String)" />
   </x:Members>
   <this:RPT00169.in_OutgoingEmailCC>
     <InArgument x:TypeArguments="x:String" />
@@ -136,9 +138,10 @@
       <AssemblyReference>LIB_GraphAPI</AssemblyReference>
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: This xaml integrates all the flows related to Not Submitted and Not Approved eports( RPT00169)&#xA;PreCondition: Access to Workday API&#xA;PostCondition: Report details are extracted as excel" DisplayName="RPT00169" sap:VirtualizedContainerService.HintSize="927.9999999999999,3056" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: This xaml integrates all the flows related to Not Submitted and Not Approved eports( RPT00169)&#xA;PreCondition: Access to Workday API&#xA;PostCondition: Report details are extracted as excel" DisplayName="RPT00169" sap:VirtualizedContainerService.HintSize="3087.9999999999995,3080" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:DateTime" Name="dateStartDate" />
       <Variable x:TypeArguments="s:DateTime" Name="dateEndDate" />
@@ -246,7 +249,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </l:Upload_File>
-    <If Condition="[dt_Details.RowCount&gt;0]" DisplayName="If Data Present Not Submitted" sap:VirtualizedContainerService.HintSize="450,973.3333333333334" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[dt_Details.RowCount&gt;0]" DisplayName="If Data Present Not Submitted" sap:VirtualizedContainerService.HintSize="450,971.3333333333334" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,572" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
@@ -264,6 +267,8 @@
               <InArgument x:TypeArguments="x:String" x:Key="OutgoingEmailCC">[in_OutgoingEmailCC]</InArgument>
               <InArgument x:TypeArguments="x:Boolean" x:Key="BCC">[in_bcc]</InArgument>
               <InArgument x:TypeArguments="x:Boolean" x:Key="Attachment">[in_attachment]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="ExclusionUser">[in_strExclusionUser]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="ExclusionSupervisor">[in_strExclusionSupervisor]</InArgument>
             </ui:AddQueueItem.ItemInformation>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -281,6 +286,10 @@
               <InArgument x:TypeArguments="x:String" x:Key="AgencyCode">[in_StrAgencycode]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="EmailCC">[in_EmailCC]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="OutgoingEmailCC">[in_OutgoingEmailCC]</InArgument>
+              <InArgument x:TypeArguments="x:Boolean" x:Key="BCC">[in_bcc]</InArgument>
+              <InArgument x:TypeArguments="x:Boolean" x:Key="Attachment">[in_attachment]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="ExclusionUser">[in_strExclusionUser]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="ExclusionSupervisor">[in_strExclusionSupervisor]</InArgument>
             </ui:AddQueueItem.ItemInformation>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -293,16 +302,16 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="376,229" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message No Data Not Submitted" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot; No Data Present in Not Submitted report&quot;]" />
+          <ui:LogMessage DisplayName="Log Message No Data Not Submitted" sap:VirtualizedContainerService.HintSize="382,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot; No Data Present in Not Submitted report&quot;]" />
         </Sequence>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Log Not Submitted And Not Approved Reports(RPT00169) End" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Process has completed for Not Submitted And Not Approved Reports(RPT00169)&quot;]" />
+    <ui:LogMessage DisplayName="Log Not Submitted And Not Approved Reports(RPT00169) End" sap:VirtualizedContainerService.HintSize="450,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Process has completed for Not Submitted And Not Approved Reports(RPT00169)&quot;]" />
   </Sequence>
 </Activity>

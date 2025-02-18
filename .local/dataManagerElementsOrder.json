@@ -26,6 +26,9 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "ShouldStop&Sequence_25",
+        "in_OrchestratorQueueFolder&StateMachine_1",
+        "in_OrchestratorQueueName&StateMachine_1",
         "strSubject&StateMachine_1",
         "TransactionItem&StateMachine_1",
         "SystemException&StateMachine_1",
@@ -37,12 +40,10 @@
         "TransactionField1&StateMachine_1",
         "TransactionID&StateMachine_1",
         "dt_TransactionData&StateMachine_1",
-        "ConsecutiveSystemExceptions&StateMachine_1",
-        "ShouldStop&Sequence_25"
+        "ConsecutiveSystemExceptions&StateMachine_1"
       ],
       "ArgumentsSectionElementsOrder": [
-        "in_OrchestratorQueueName",
-        "in_OrchestratorQueueFolder"
+        "in_AgencyList"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
@@ -51,19 +52,24 @@
       "Path": "Framework/Process.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "strOutgoingEmailCC&Sequence_8",
-        "strEmailCC&Sequence_8",
+        "strExclusionSupervisor&Sequence_13",
+        "strExclusionUser&Sequence_13",
         "strException&Sequence_1",
         "strReportsFailed&Sequence_1",
         "strSubject&Sequence_1",
         "strAgencyRefFilePath&Sequence_1",
         "dtAgencyRef&Sequence_1",
-        "strAgencyCode&Sequence_8",
+        "strAgencyCode&Sequence_13",
+        "strOutgoingEmailCC&Sequence_13",
+        "strEmailCC&Sequence_13",
+        "blnBCC&Sequence_13",
+        "blnAttachment&Sequence_13",
         "boolFolderExists&Sequence_10",
         "intResCount&Sequence_10",
         "out_strSubject&Sequence_11"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_AgencyList",
         "in_Config"
       ],
       "ConstantsSectionElementsOrder": [],
@@ -144,6 +150,10 @@
         "boolFileUploaded&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_StrExclusionSupervisor",
+        "in_strExclusionUser",
+        "in_Attachment",
+        "in_BCC",
         "in_OutgoingEmailCC",
         "in_EmailCC",
         "in_strAgencyCode",
@@ -166,6 +176,10 @@
         "dt_Details&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_strExclusionSupervisor",
+        "in_strExclusionUser",
+        "in_attachment",
+        "in_bcc",
         "in_OutgoingEmailCC",
         "in_EmailCC",
         "in_StrAgencycode",

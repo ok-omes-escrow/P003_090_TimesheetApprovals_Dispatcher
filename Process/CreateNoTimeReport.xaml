@@ -6,6 +6,8 @@
     <x:Property Name="in_OutgoingEmailCC" Type="InArgument(x:String)" />
     <x:Property Name="in_BCC" Type="InArgument(x:Boolean)" />
     <x:Property Name="in_Attachment" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_strExclusionUser" Type="InArgument(x:String)" />
+    <x:Property Name="in_StrExclusionSupervisor" Type="InArgument(x:String)" />
   </x:Members>
   <this:RPT00177.in_strAgencyCode>
     <InArgument x:TypeArguments="x:String" />
@@ -142,9 +144,10 @@
       <AssemblyReference>LIB_GraphAPI</AssemblyReference>
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: This xaml integrates all the flows related to No Time Reported Report( RPT00177)&#xA;PreCondition: Access to Workday API&#xA;PostCondition: Report details are extracted as excel" DisplayName="RPT00177" sap:VirtualizedContainerService.HintSize="927.9999999999999,2791.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: This xaml integrates all the flows related to No Time Reported Report( RPT00177)&#xA;PreCondition: Access to Workday API&#xA;PostCondition: Report details are extracted as excel" DisplayName="RPT00177" sap:VirtualizedContainerService.HintSize="3087.9999999999995,2791.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:DateTime" Name="dateStartDate" />
       <Variable x:TypeArguments="s:DateTime" Name="dateEndDate" />
@@ -276,6 +279,8 @@
               <InArgument x:TypeArguments="x:String" x:Key="OutgoingEmailCC">[in_OutgoingEmailCC]</InArgument>
               <InArgument x:TypeArguments="x:Boolean" x:Key="BCC">[in_BCC]</InArgument>
               <InArgument x:TypeArguments="x:Boolean" x:Key="Attachment">[in_Attachment]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="ExclusionUser">[in_strExclusionUser]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="ExclusionSupervisor">[in_StrExclusionSupervisor]</InArgument>
             </ui:AddQueueItem.ItemInformation>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
